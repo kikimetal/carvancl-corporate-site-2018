@@ -1,0 +1,171 @@
+.Menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  color: #000;
+
+  .Btn{
+    transition: 0.3s ease;
+
+    svg.svg-inline--fa{
+      margin: 0 0.3em;
+      margin-left: -0.4em;
+    }
+  }
+
+  a.active .Btn{
+    // react-router -> NavLink で 現在ルートの a に .active が付く。
+    opacity: 0.5;
+    pointer-events: none;
+    background: #eee;
+    cursor: default;
+  }
+
+  &.sm{
+    width: 100%;
+    font-size: 1rem;
+    font-family: Arial;
+
+    .Btn{
+      margin: 1px;
+      width: 200px;
+      height: 66px;
+    }
+
+    .menu-switch{
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 38px;
+      color: var(--kiki-pink);
+      padding: 20px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .sort-switch{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 4px;
+      cursor: pointer;
+      z-index: 1;
+      animation: sort-switch-in 0.9s 0.6s ease both;
+      @keyframes sort-switch-in{
+        from{
+          opacity: 0;
+          transform: translateX(-14px);
+        }
+        to{
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+    }
+
+    .container{
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      // height: HeightTransitionToFull
+      background: white;
+      transition: 0.4s ease;
+      z-index: 2;
+
+      .link-list{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &.hide{
+        pointer-events: none;
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(1.1);
+      }
+
+      &.show{
+        .link-list{
+          @for $i from 1 through 6 {
+            &-item:nth-child(#{$i}) {
+              animation: slide-in ease both;
+              animation-duration: $i * 0.4s;
+              animation-delay: $i * 0.04s;
+              @keyframes slide-in{
+                from{
+                  transform: translateY(9px * $i);
+                  opacity: 0;
+                }
+                to{
+                  transform: translateY(0px);
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.md{
+
+    top: 0;
+    left: 0;
+    right: 1px;
+    bottom: auto;
+    background: white;
+    border-bottom: 1px solid #eee;
+
+    .container{
+      width: 100%;
+      height: auto;
+
+      display: flex;
+      flex-flow: row wrap;
+      // justify-content: flex-end;
+      justify-content: center;
+      // justify-content: flex-start;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+
+    .link-list{
+      &-item{
+        margin: 0 1px;
+      }
+      .Btn{
+        width: 100%;
+      }
+    }
+
+    .sort-switch{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0;
+      cursor: pointer;
+      z-index: 1;
+      animation: sort-switch-in 0.9s 0.6s ease both;
+      @keyframes sort-switch-in{
+        from{
+          opacity: 0;
+          transform: translateX(-14px);
+        }
+        to{
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+    }
+  }
+}

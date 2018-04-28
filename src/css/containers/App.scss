@@ -1,0 +1,90 @@
+.App{
+
+  --Menu-width: 210px;
+  --kiki-pink: rgb(149, 213, 205);
+  --kiki-orange: rgb(255, 162, 75);
+
+  opacity: 0;
+  transition: opacity 0.5s;
+  &.app-fade-in{
+    opacity: 1;
+  }
+
+  // ******************** sm: mobile layout ********************
+
+  .Header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding: 0.55em;
+    font-size: 36px;
+    pointer-events: none;
+    z-index: 99;
+  }
+
+  .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 999;
+  }
+
+  .main{
+    position: relative;
+    /* height: [js] window.innerHeight */
+    width: 100%;
+    height: 100vh;
+
+    .animated-switch-wrapper {
+      position: relative;
+      height: 100%;
+
+      & > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .page{
+        // padding: 0 2vw;
+        width: 100%;
+        min-height: 100%;
+
+        .page-title{
+          padding: 30vh 0;
+          font-size: 100px;
+        }
+      }
+
+    }
+  }
+
+  // ******************** md middle size layout ********************
+  @media screen and (min-width: 768px){
+
+    main.main{
+      /* height: [js] window.innerHeight */
+
+      .animated-switch-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+
+        & > div{
+          -webkit-overflow-scrolling: touch;
+          height: 100%;
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+}

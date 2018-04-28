@@ -1,0 +1,32 @@
+{
+  "/": {
+    "title": "KIKIMETAL",
+    "description": "kikimetal(ききめたる)の遊び場です。websiteやイラストがあります。CSSとかJavaScriptとかで遊びます。",
+    "canonical": "https://www.kikimetal.com"
+  },
+  "/graffiti": {
+    "title": "Graffiti",
+    "description": "meta description of Graffiti.",
+    "canonical": "https://www.kikimetal.com/graffiti"
+  },
+  "/website": {
+    "title": "WebSite",
+    "description": "meta description of WebSite.",
+    "canonical": "https://www.kikimetal.com/website"
+  },
+  "/products": {
+    "title": "Products",
+    "description": "meta description of Products.",
+    "canonical": "https://www.kikimetal.com/products"
+  },
+  "/products/cyan": {
+    "title": "Cyan",
+    "description": "meta description of cyan.",
+    "canonical": "https://www.kikimetal.com/products/cyan"
+  },
+  "/products/yellow": {
+    "title": "Yellow",
+    "description": "meta description of yellow.",
+    "canonical": "https://www.kikimetal.com/products/yellow"
+  }
+}
