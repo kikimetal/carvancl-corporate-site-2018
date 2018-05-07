@@ -20,7 +20,7 @@ class Menu extends React.Component{
   render(){
     if (this.props.windowSize === "sm") { // sm
       return (
-        <div className="Menu sm">
+        <HeightTransitionToFull className="Menu sm">
 
           <div className="menu-switch" onClick={this.toggleMobileMenu}>
             <MenuTrigger collapse={this.state.isShowMobileMenu} />
@@ -44,7 +44,8 @@ class Menu extends React.Component{
               <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
             </ul>
           </HeightTransitionToFull>
-        </div>
+
+        </HeightTransitionToFull>
       )
     } else { // over md
       return (
