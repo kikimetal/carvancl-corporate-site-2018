@@ -1,32 +1,32 @@
 {
   "/": {
-    "title": "KIKIMETAL",
-    "description": "kikimetal(ききめたる)の遊び場です。websiteやイラストがあります。CSSとかJavaScriptとかで遊びます。",
-    "canonical": "https://www.kikimetal.com"
+    "title": "CARVANCL カーバンクル | 芸大・美大生のキャリアを広げる事業会社",
+    "description": "株式会社カーバンクルの公式サイトです。",
+    "canonical": "http://www.carvancl.co.jp"
   },
   "/graffiti": {
     "title": "Graffiti",
     "description": "meta description of Graffiti.",
-    "canonical": "https://www.kikimetal.com/graffiti"
+    "canonical": "http://www.carvancl.co.jp/graffiti"
   },
   "/website": {
     "title": "WebSite",
     "description": "meta description of WebSite.",
-    "canonical": "https://www.kikimetal.com/website"
+    "canonical": "http://www.carvancl.co.jp/website"
   },
   "/products": {
     "title": "Products",
     "description": "meta description of Products.",
-    "canonical": "https://www.kikimetal.com/products"
+    "canonical": "http://www.carvancl.co.jp/products"
   },
   "/products/cyan": {
     "title": "Cyan",
     "description": "meta description of cyan.",
-    "canonical": "https://www.kikimetal.com/products/cyan"
+    "canonical": "http://www.carvancl.co.jp/products/cyan"
   },
   "/products/yellow": {
     "title": "Yellow",
     "description": "meta description of yellow.",
-    "canonical": "https://www.kikimetal.com/products/yellow"
+    "canonical": "http://www.carvancl.co.jp/products/yellow"
   }
 }
