@@ -2,12 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: auto;
-  bottom: auto;
+  // height: <HeightTransitionToFull>
   color: #000;
+  pointer-events: none;
 
   .Btn{
     transition: 0.3s ease;
+    pointer-events: auto;
 
     svg.svg-inline--fa{
       margin: 0 0.3em;
@@ -36,13 +37,19 @@
 
     .menu-switch{
       position: absolute;
-      top: 0;
+      top: auto;
+      left: 0;
       right: 0;
+      bottom: 10vh;
+      margin: 0 auto;
+      padding: 20px;
+
       font-size: 38px;
       color: var(--kiki-pink);
-      padding: 20px;
+
       cursor: pointer;
       z-index: 3;
+      pointer-events: auto;
     }
 
     .sort-switch{
@@ -78,6 +85,7 @@
       background: white;
       transition: 0.4s ease;
       z-index: 2;
+      pointer-events: auto;
 
       .link-list{
         display: flex;
