@@ -27,7 +27,6 @@ $assets = get_assets_path();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  
   <!-- TODO remove env production-->
   <!-- <script src="http://localhost:8097"></script> -->
 
@@ -42,8 +41,34 @@ $assets = get_assets_path();
   <title><?= $route["title"] ?></title>
   <meta name="description" content="<?= $route["description"] ?>" data-react-helmet="true" />
   <link rel="canonical" href="<?= $route["canonical"] ?>" data-react-helmet="true" />
+
+  <!-- TODO remove env production-->
+    <style media="screen">
+      .develop-now{
+        display: block;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 120px;
+        height: 30px;
+        background: crimson;
+        color: white;
+        font-size: 11px;
+        font-family: Arial;
+        text-align: center;
+        line-height: 30px;
+        border-top-left-radius: 5px;
+        z-index: 999999999999999;
+      }
+    </style>
+  <!-- TODO remove env production-->
+
 </head>
 <body>
+
+  <!-- TODO remove env production-->
+    <div class="develop-now">現在改装中です</div>
+  <!-- TODO remove env production-->
 
   <div id="app"></div>
   <div id="loader">
