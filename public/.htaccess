@@ -1,0 +1,29 @@
+SetEnvIf REDIRECT_HTTPS (.*) HTTPS=$1
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /hpv2/
+  RewriteRule ^index\.php$ - [L]
+
+  RewriteCond %{ENV:HTTPS} !on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule .* https://%{HTTP_HOST}/hpv2/index.php [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /hpv2/index.php [L]
+ </IfModule>
+
+#圧縮
+<ifModule mod_deflate.c>
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/html text/xml text/css text/plain
+    AddOutputFilterByType DEFLATE image/svg+xml application/xhtml+xml application/xml
+    AddOutputFilterByType DEFLATE application/rdf+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE application/x-httpd-php application/x-httpd-fastphp
+    AddOutputFilterByType DEFLATE application/x-font-ttf application/x-font-otf
+    AddOutputFilterByType DEFLATE font/truetype font/opentype
+  </IfModule>
+</ifModule>
