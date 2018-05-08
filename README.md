@@ -1,3 +1,4 @@
+
 #良いモバイルサイトを作る
 
 - version
@@ -6,7 +7,10 @@
   - gulp@3.9
 
 - node version 違うとエラー出ちゃう...
-  - browser-sync とか機能しなくなっちゃう
+
+- browser-sync とか機能しなくなっちゃう
+  - PHP で ```echo``` ```var_dump``` をかけてるとダメ
+    - <html><body>... で綺麗に囲われてないといけない
 
 
 - npm i で node-sass がエラー吐くとき
