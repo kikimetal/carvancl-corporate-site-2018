@@ -144,7 +144,7 @@ class App extends React.Component{
       ? bounceTransitionSm
       : bounceTransitionMd
 
-    const currentPathname = this.props.router.location.pathname
+    // const currentPathname = this.props.router.location.pathname
 
     return (
       <div className="App">
