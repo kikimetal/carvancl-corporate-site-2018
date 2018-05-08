@@ -14,7 +14,7 @@ import thunk from "redux-thunk"
 import * as reducers from "./modules/reducers"
 
 const history = createBrowserHistory({
-  basename: window.__BASENAME__ || '/',
+  // basename: window.__BASENAME__ || '/',
 })
 const middlewares = [
   routerMiddleware(history),
