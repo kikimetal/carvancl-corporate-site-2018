@@ -10,7 +10,7 @@ import Btn from "../components/Btn"
 const Home = props => (
   <div className="Home page">
 
-    <div className="first-view">
+    <div className="first-view" style={{backgroundImage: `url(${window.__ASSETS__}/img/first-view.jpg)`}}>
 
       <h1 className="first-view-content">
         <div className="logomark"><KikiStar /></div>
@@ -46,8 +46,8 @@ const Home = props => (
     </section>
 
     <section>
-      <img className="twintail none" src="/assets/img/180125_ribon-min.jpg" alt="" />
-      <img className="twintail" src="/assets/img/180110_twintail.jpg" alt="" />
+      <img className="twintail none" src={`${window.__BASENAME__}assets/img/180125_ribon-min.jpg`} alt="" />
+      <img className="twintail" src={`${window.__BASENAME__}assets/img/180110_twintail.jpg`} alt="" />
     </section>
 
     <ul className="link-list" style={{padding: "60px 0"}}>
