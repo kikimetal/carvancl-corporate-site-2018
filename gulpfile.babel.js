@@ -14,7 +14,7 @@ gulp.task("watch", ["js", "css"], () => {
 // use webpack env:production & css minify
 gulp.task("min", ["js:min", "css:min"])
 // watch minify
-gulp.task("watch", ["js:min", "css:min"], () => {
+gulp.task("watch:min", ["js:min", "css:min"], () => {
   gulp.watch("./src/js/**/*", ["js:min"])
   gulp.watch("./src/css/**/*", ["css:min"])
 })
