@@ -12,7 +12,12 @@ gulp.task("watch", ["js", "css"], () => {
   gulp.watch("./src/css/**/*", ["css"])
 })
 // use webpack env:production & css minify
-gulp.task("prod", ["js:prod", "css:min"])
+gulp.task("min", ["js:min", "css:min"])
+// watch minify
+gulp.task("watch", ["js:min", "css:min"], () => {
+  gulp.watch("./src/js/**/*", ["js:min"])
+  gulp.watch("./src/css/**/*", ["css:min"])
+})
 // php server
 gulp.task("server", ["php-built-in-server"])
 // -----------------------------------------------
@@ -35,7 +40,7 @@ gulp.task("js", ["js:clean"], () => {
     .pipe(gulp.dest(jsOutputPath))
 })
 
-gulp.task("js:prod", ["js:clean"], () => {
+gulp.task("js:min", ["js:clean"], () => {
   console.log("(gulp) start webpack env:production")
   return webpackStream(webpackConfigProd, webpack)
     .pipe(gulp.dest(jsOutputPath))
