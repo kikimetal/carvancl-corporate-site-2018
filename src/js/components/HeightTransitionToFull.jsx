@@ -25,6 +25,13 @@ class HeightTransitionToFull extends React.Component{
         style={{ ...style, height: this.state.height }}
         {...props}
         >
+        <div style={{
+          position: "fixed",
+          top: "30px",
+          left: "50px",
+          color: "blue",
+          border: "1px dotted",
+        }}>{this.state.height}</div>
         {children}
       </div>
     )
