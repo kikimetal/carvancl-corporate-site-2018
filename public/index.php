@@ -5,15 +5,15 @@ $root_url = $http_protocol . $_SERVER["HTTP_HOST"];
 $root_uri = '/';
 
 // 許可する URL
-// if ($_SERVER["HTTP_HOST"] === 'www.carvancl.co.jp' || $_SERVER["HTTP_HOST"] === 'carvancl.co.jp') {
-//   $root_url = $http_protocol . 'www.carvancl.co.jp';
-//   $root_uri = '/hpv2/';
-// }
+if ($_SERVER["HTTP_HOST"] === 'www.carvancl.co.jp' || $_SERVER["HTTP_HOST"] === 'carvancl.co.jp') {
+  $root_url = $http_protocol . 'www.carvancl.co.jp';
+  $root_uri = '/hpv2/';
+}
 
 // assets ディレクトリの設定
 $assets_url = $root_url . $root_uri . 'assets';
 
-echo "assets_url: " . $assets_url . "<br>";
+// echo "assets_url: " . $assets_url . "<br>"; // TODO: remove this
 
 // ルーティング情報を引き出す
 $routes = file_get_contents("./assets/routes.json");
@@ -23,7 +23,7 @@ $routes_array = json_decode($routes, true); // 配列へ
 
 $request_uri = null;
 if ($_SERVER["REQUEST_URI"] === $root_uri) {
-  $request_uri = '/';
+  $request_uri = "/";
 } else {
   // rootディレクトリ以外へのアクセスは、末尾の "/" は除去
   $request_uri = rtrim($_SERVER["REQUEST_URI"], "/");
@@ -31,9 +31,7 @@ if ($_SERVER["REQUEST_URI"] === $root_uri) {
   $request_uri = substr($request_uri, (strlen($root_uri) - 1) );
 }
 
-echo "request_uri: " . $request_uri . "<br>";
-
-// var_dump($request_uri); echo "<br>"; // 確認
+// echo "request_uri: " . $request_uri . "<br>"; // TODO: remove this
 
 // ルーティング。ステータスコードも返す。
 $route = null;
