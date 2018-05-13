@@ -8,8 +8,10 @@ import LazyLoadImg from '../components/LazyLoadImg'
 
 class WebSite extends React.Component{
   componentDidMount(){
+  // componentWillMount(){
     if (this.props.dataCondition !== "success") {
-      fetch(`${location.origin}/assets/websites.json`)
+      // fetch(`${location.origin}/assets/websites.json`)
+      fetch(`${window.__ASSETS__}/websites.json`)
         .then((response) => {
           if(!response.ok) {
             throw Error(response.statusText);
@@ -75,7 +77,7 @@ const Site = ({ date, title, image, url, skill, period, comment }) => (
         <p><a href={url}><Btn>みる</Btn></a></p>
       </div>
       <a className="flex-item" href={url}>
-        <LazyLoadImg className="img-link" imgsrc={image ? "/assets/img/website/" + image : "/assets/img/kiki-star/square-centering.svg"} />
+        <LazyLoadImg className="img-link" imgsrc={image ? `${window.__ASSETS__}/img/website/${image}` : `${window.__ASSETS__}/img/kiki-star/square-centering.svg`} />
       </a>
     </div>
   </section>
