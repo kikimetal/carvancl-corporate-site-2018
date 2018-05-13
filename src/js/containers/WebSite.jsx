@@ -8,9 +8,7 @@ import LazyLoadImg from '../components/LazyLoadImg'
 
 class WebSite extends React.Component{
   componentDidMount(){
-  // componentWillMount(){
     if (this.props.dataCondition !== "success") {
-      // fetch(`${location.origin}/assets/websites.json`)
       fetch(`${window.__ASSETS__}/websites.json`)
         .then((response) => {
           if(!response.ok) {

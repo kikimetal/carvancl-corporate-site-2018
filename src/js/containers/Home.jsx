@@ -6,12 +6,14 @@ import { NavLink } from "react-router-dom"
 import Bg from "../components/Bg"
 import KikiStar from "../components/KikiStar"
 import Btn from "../components/Btn"
+import LazyLoadImg from "../components/LazyLoadImg"
 
 const Home = props => (
   <div className="Home page">
 
-    <div className="first-view" style={{backgroundImage: `url(${window.__ASSETS__}/img/first-view.jpg)`}}>
-
+    <LazyLoadImg className="first-view" imgsrc={`${window.__ASSETS__}/img/wa-maid.jpg`} />
+    <LazyLoadImg className="first-view" imgsrc={`${window.__ASSETS__}/img/nurse-rip.jpg`} />
+    {/*<div className="first-view" style={{backgroundImage: `url(${window.__ASSETS__}/img/first-view.jpg)`}}>
       <h1 className="first-view-content">
         <div className="logomark"><KikiStar /></div>
         <div className="main-text">
@@ -19,10 +21,8 @@ const Home = props => (
         </div>
         <div className="sub-text">現在改装中です。大目に見てね。</div>
       </h1>
-
-      {/*<img className="twintail none" src="/assets/img/171221_kikimohu_v2_LineColorChange_transparent_min.png" alt="" />*/}
-
-    </div>
+    </div>*/}
+    {/*<img className="twintail none" src="/assets/img/171221_kikimohu_v2_LineColorChange_transparent_min.png" alt="" />*/}
 
     <section>
       <h1>序章</h1>
