@@ -9,6 +9,10 @@ if ($_SERVER["HTTP_HOST"] === 'www.carvancl.co.jp' || $_SERVER["HTTP_HOST"] === 
   $root_url = $http_protocol . 'www.carvancl.co.jp';
   $root_uri = '/hpv2/';
 }
+if ($_SERVER["HTTP_HOST"] === 'www.kikimetal.com' || $_SERVER["HTTP_HOST"] === 'kikimetal.com') {
+  $root_url = $http_protocol . 'www.kikimetal.com';
+  $root_uri = '/hpv2/';
+}
 
 // assets ディレクトリの設定
 $assets_url = $root_url . $root_uri . 'assets';

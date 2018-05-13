@@ -6,14 +6,14 @@
 //   font-family: "RictyDiminished-Regular";
 //   src: url("/assets/font/RictyDiminished-Regular.ttf") format("truetype");
 // }
-@font-face {
-  font-family: "SF-Pro-Display-Ultralight";
-  src: url("/assets/font/SF-Pro-Display-Ultralight.otf") format("opentype");
-}
-@font-face {
-  font-family: "AdobeSongStd-Light";
-  src: url("/assets/font/AdobeSongStd-Light.otf") format("opentype");
-}
+// @font-face {
+//   font-family: "SF-Pro-Display-Ultralight";
+//   src: url("/assets/font/SF-Pro-Display-Ultralight.otf") format("opentype");
+// }
+// @font-face {
+//   font-family: "AdobeSongStd-Light";
+//   src: url("/assets/font/AdobeSongStd-Light.otf") format("opentype");
+// }
 *{
   box-sizing: border-box;
 }
@@ -28,7 +28,7 @@ html{
   }
 
   body{
-    font-family: "SF-Pro-Display-Ultralight", "AdobeSongStd-Light", monospace;
+    // font-family: "SF-Pro-Display-Ultralight", "AdobeSongStd-Light", monospace;
     letter-spacing: 1px;
     color: #333;
     text-align: center;
