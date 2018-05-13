@@ -46,8 +46,8 @@ const Home = props => (
     </section>
 
     <section>
-      <img className="twintail none" src={`${window.__BASENAME__}assets/img/180125_ribon-min.jpg`} alt="" />
-      <img className="twintail" src={`${window.__BASENAME__}assets/img/180110_twintail.jpg`} alt="" />
+      <img className="twintail none" src={`${window.__ASSETS__}/img/180125_ribon-min.jpg`} alt="" />
+      <img className="twintail" src={`${window.__ASSETS__}/img/180110_twintail.jpg`} alt="" />
     </section>
 
     <ul className="link-list" style={{padding: "60px 0"}}>
