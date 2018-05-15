@@ -11,44 +11,36 @@ import LazyLoadImg from "../components/LazyLoadImg"
 const Home = props => (
   <div className="Home page">
 
-    <LazyLoadImg className="first-view" imgsrc={`${window.__ASSETS__}/img/wa-maid.jpg`} />
-    <LazyLoadImg className="first-view" imgsrc={`${window.__ASSETS__}/img/nurse-rip.jpg`} />
-    {/*<div className="first-view" style={{backgroundImage: `url(${window.__ASSETS__}/img/first-view.jpg)`}}>
-      <h1 className="first-view-content">
-        <div className="logomark"><KikiStar /></div>
-        <div className="main-text">
-          KIKIMETAL
-        </div>
-        <div className="sub-text">現在改装中です。大目に見てね。</div>
-      </h1>
-    </div>*/}
-    {/*<img className="twintail none" src="/assets/img/171221_kikimohu_v2_LineColorChange_transparent_min.png" alt="" />*/}
+    <LazyLoadImg className="first-view"
+      imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl-none.png`}
+      minHeight="50vh"
+      />
+    <LazyLoadImg className="first-view"
+      imgsrc={`${window.__ASSETS__}/img/wa-maid.jpg`}
+      minHeight="50vh"
+      />
+    <LazyLoadImg className="first-view"
+      imgsrc={`${window.__ASSETS__}/img/nurse-rip.jpg`}
+      minHeight="50vh"
+      />
 
     <section>
-      <h1>序章</h1>
-      <p>
-        デザイナー、<br/>
-        イラストレーター、<br/>
-        フロントエンドエンジニア。<br/>
-      </p>
-      <p>
-        そんな肩書きにとらわれず、<br/>
-        より本質的に伝えたいものがあります。
-      </p>
-      <p>
-        何が好きで、<br/>
-        何をしてきて、<br/>
-        何に挑みたいのか。
-      </p>
-      <p>
-        私を少しでも感じ取ってもらえると幸いです。
-      </p>
+      <h1>CVL の価値観 Value</h1>
+      <h2>新しい「解釈」と新しい「翻訳」こそに美しさがある</h2>
+      <ul>
+        <li>「儲かるから」で判断しない: 興奮しない</li>
+        <li>「皆がそう言うから」「皆から同意を得やすいから」で判断しない: 流されない</li>
+        <li>解釈が更新されていない「慣習」を否定: 嫌悪する</li>
+        <li>動くお金の大きさではなく、生じる感動の大きさを大切にする（に、影響される）</li>
+        <li>誰も見たことがない、感じたことがないものを生み出すことに強い興奮を覚える</li>
+        <li>少数派（社会的弱者）の味方ではない。特定の社会問題を解決したいという欲求もない。社会貢献をしたいと思って事業をしている訳ではない。</li>
+        <li>解釈が深い（上質な）人間の味方であり、飛躍した翻訳をしようとしている人間の味方である。</li>
+        <li>上質な解釈を持っている人間が、翻訳する力（その解釈を伝達する力）を持たずにクリエイターとしての死を迎えるのを何よりも悲しむ</li>
+        <li>周りを良いクリエイター（ = CVL にとっての仲間 ）に囲まれている時が最も安心し、楽しんでいる。</li>
+        <li>良いクリエイター（仲間）が蔑ろにされた時（報酬が適切でない、チャンスが与えられないetc...）に強く憤る。</li>
+      </ul>
     </section>
 
-    <section>
-      <img className="twintail none" src={`${window.__ASSETS__}/img/180125_ribon-min.jpg`} alt="" />
-      <img className="twintail" src={`${window.__ASSETS__}/img/180110_twintail.jpg`} alt="" />
-    </section>
 
     <ul className="link-list" style={{padding: "60px 0"}}>
       <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>

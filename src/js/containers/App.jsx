@@ -81,7 +81,8 @@ const bounceTransitionSm = {
     // translateY: bounce(0, {stiffness: 162, damping: 23}),
   },
 }
-const bounceTransitionMd = bounceTransitionBase
+// const bounceTransitionMd = bounceTransitionBase
+const bounceTransitionMd = bounceTransitionSm
 
 // we need to map the `scale` prop we define below // to the transform style property
 function mapStyles(styles) {
@@ -149,7 +150,7 @@ class App extends React.Component{
     return (
       <div className="App">
 
-        <MyHelmet />
+        {/*<MyHelmet />*/}
 
         {/*<Bg
           className={currentPathname === "/" ? "home" : currentPathname.slice(1)}
@@ -157,13 +158,9 @@ class App extends React.Component{
           scale={1}
         />*/}
 
-        <LightsSvg />
+        {/*<LightsSvg />*/}
 
-        <nav className="nav">
-          <Menu/>
-        </nav>
-
-        <main className="main">
+        {/*<main className={`main ${this.props.windowSize}`}>
           <AnimatedSwitch
             atEnter={bounceTransition.atEnter}
             atLeave={bounceTransition.atLeave}
@@ -176,7 +173,23 @@ class App extends React.Component{
             <Route path="/website" component={WebSite} />
             <Route component={NotFound} />
           </AnimatedSwitch>
+        </main>*/}
+        <main className={`main ${this.props.windowSize}`}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/graffiti" component={Graffiti} />
+            <Route path="/website" component={WebSite} />
+            <Route component={NotFound} />
+          </Switch>
         </main>
+
+        <nav className="nav">
+          <Menu/>
+        </nav>
+
+        <LightsSvg />
+
+        <MyHelmet />
 
       </div>
     )

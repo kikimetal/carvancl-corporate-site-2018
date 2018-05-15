@@ -19,7 +19,10 @@ const MyHelmet = ({ currentPath, windowSize }) => {
   const thisRoute = checkRoute(currentPath)
   return (
     <div className="MyHelmet">
-      {windowSize === "sm" && <ScrollToTopOnMount />}
+      
+      {/*{windowSize === "sm" && <ScrollToTopOnMount />}*/}
+      <ScrollToTopOnMount />
+
       <Helmet>
         <title>{thisRoute.title}</title>
         <meta name="description" content={thisRoute.description} />

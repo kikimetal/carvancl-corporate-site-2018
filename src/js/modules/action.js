@@ -13,7 +13,7 @@ export const setWindowSize = () => {
       type: "SET_WINDOW_WIDTH",
       width,
     })
-    
+
     dispatch({
       type: "SET_WINDOW_HEIGHT",
       height,

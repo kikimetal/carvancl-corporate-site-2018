@@ -6,21 +6,18 @@
 //   font-family: "RictyDiminished-Regular";
 //   src: url("/assets/font/RictyDiminished-Regular.ttf") format("truetype");
 // }
-// @font-face {
-//   font-family: "SF-Pro-Display-Ultralight";
-//   src: url("/assets/font/SF-Pro-Display-Ultralight.otf") format("opentype");
-// }
-// @font-face {
-//   font-family: "AdobeSongStd-Light";
-//   src: url("/assets/font/AdobeSongStd-Light.otf") format("opentype");
-// }
 *{
   box-sizing: border-box;
 }
 html{
+  width: 100%;
+  // overflow-x: hidden; // iPhone:Safariでこれつけるとスクロールでエラーになる謎
   --kiki-pink: rgb(255, 157, 238);
   --kiki-lavender: rgb(139, 131, 218);
-  --my-ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --cvl-red: rgb(171, 28, 28);
+  
+  // --my-ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --my-ease-out: cubic-bezier(0, 0.92, 0.44, 1);
 
   font-size: 14px;
   @media screen and (min-width: 1900){ // xl
@@ -28,7 +25,9 @@ html{
   }
 
   body{
-    // font-family: "SF-Pro-Display-Ultralight", "AdobeSongStd-Light", monospace;
+    width: 100%;
+    overflow-x: hidden;
+
     letter-spacing: 1px;
     color: #333;
     text-align: center;
