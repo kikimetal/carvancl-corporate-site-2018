@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import Btn from "../components/Btn"
 import KikiLogoType from "../components/KikiLogoType"
 import MenuTrigger from "../components/MenuTrigger"
-import HeightTransitionToFull from "../components/HeightTransitionToFull"
+// import HeightTransitionToFull from "../components/HeightTransitionToFull"
 
 class Menu extends React.Component{
   constructor(props){
@@ -33,22 +33,17 @@ class Menu extends React.Component{
             </div>
           }
 
-          {/*<HeightTransitionToFull
-            className={`container ${this.state.isShowMobileMenu ? "show" : "hide"}`}
-            onClick={this.toggleMobileMenu}
-            >*/}
           <div
             className={`container ${this.state.isShowMobileMenu ? "show" : "hide"}`}
             onClick={this.toggleMobileMenu}
             >
-            <KikiLogoType spin />
+            {/*<KikiLogoType spin />*/}
             <ul className="link-list">
               <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
               <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
             </ul>
           </div>
-          {/*</HeightTransitionToFull>*/}
 
         </div>
       )
@@ -65,10 +60,6 @@ class Menu extends React.Component{
             }
 
             <ul className="link-list">
-              {/*{
-                this.props.router.location.pathname === "/website" &&
-                <li className="link-list-item"><Btn onClick={this.props.reverseWebsite}><i className="fas fa-bug" />{this.props.isReverseWebsite ? "古い" : "新しい"}順にする</Btn></li>
-              }*/}
               <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
               <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>

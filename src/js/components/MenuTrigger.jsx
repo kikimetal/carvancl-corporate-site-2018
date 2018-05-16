@@ -2,9 +2,7 @@ import React from "react"
 
 const MenuTrigger = ({ collapse }) => (
   <div className={`MenuTrigger ${collapse && "collapse"}`}>
-    <span></span>
-    <span></span>
-    <span></span>
+    <img className="icon-img" src={`${window.__ASSETS__}/img/home-icon.svg`} />
   </div>
 )
 

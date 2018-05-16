@@ -158,22 +158,6 @@ class App extends React.Component{
           scale={1}
         />*/}
 
-        {/*<LightsSvg />*/}
-
-        {/*<main className={`main ${this.props.windowSize}`}>
-          <AnimatedSwitch
-            atEnter={bounceTransition.atEnter}
-            atLeave={bounceTransition.atLeave}
-            atActive={bounceTransition.atActive}
-            mapStyles={mapStyles}
-            className={`animated-switch-wrapper ${!this.props.windowSize === "sm" && "fix-height"}`}
-            >
-            <Route exact path="/" component={Home} />
-            <Route exact path="/graffiti" component={Graffiti} />
-            <Route path="/website" component={WebSite} />
-            <Route component={NotFound} />
-          </AnimatedSwitch>
-        </main>*/}
         <main className={`main ${this.props.windowSize}`}>
           <Switch>
             <Route exact path="/" component={Home} />

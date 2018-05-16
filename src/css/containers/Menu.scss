@@ -1,10 +1,4 @@
 .Menu{
-  // position: fixed;
-  // // top: 0;
-  // bottom: 0; // top ではなく bottom に標準合わせ(モバイルgoogle の挙動に対応)
-  // left: 0;
-  // right: 0;
-  // height: <HeightTransitionToFull>
   color: #000;
   pointer-events: none;
   z-index: 999;
@@ -23,7 +17,8 @@
     // react-router -> NavLink で 現在ルートの a に .active が付く。
     opacity: 0.5;
     pointer-events: none;
-    background: #eee;
+    // background: #eee;
+    background: transparent;
     cursor: default;
   }
 
@@ -39,18 +34,11 @@
     }
 
     .menu-switch{
-      // position: absolute;
-      // top: auto;
-      // left: 0;
-      // right: 0;
-      // // bottom: 30px;
-      // margin: 0 auto;
-      // padding: 20px;
       position: fixed;
-      // top: 0;
-      bottom: 0; // top ではなく bottom に標準合わせ(モバイルgoogle の挙動に対応)
+      top: auto;
       left: 0;
       right: 0;
+      bottom: 0; // top ではなく bottom に標準合わせ(モバイルgoogle の挙動に対応)
 
       // テストここから
       // pointer-events: none;
@@ -62,7 +50,7 @@
       height: 80px;
       // -webkit-transition: all .5s;
       // transition: all .5s;
-      background: rgba(250, 200, 200, 0.4);
+      // background: rgba(250, 200, 200, 0.4);
       display: flex;
       flex-flow: row;
       justify-content: center;
@@ -109,7 +97,8 @@
       // bottom: 0;
       height: 150vh;
       // height: HeightTransitionToFull
-      background: white;
+      background: #333;
+      color: lightgrey;
       transition: all 0.4s ease;
       z-index: 2;
       pointer-events: auto;
