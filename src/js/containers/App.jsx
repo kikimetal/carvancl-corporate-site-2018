@@ -121,50 +121,51 @@ class App extends React.Component{
   constructor(props) {
     super(props)
     this.props.setWindowSize()
-    this.toTop = this.toTop.bind(this)
+    // this.toTop = this.toTop.bind(this)
+    this.state = {
+      pathname: this.props.router.location.pathname,
+      isPageChanged: true,
+    }
+  }
+
+  // componentWillUpdate(){
+  componentWillReceiveProps(nextProps){
+    if (nextProps.router.location.pathname !== this.props.router.location.pathname) {
+      setTimeout(() => this.setState({ isPageChanged: false }), 2000)
+      this.setState({
+        pathname: nextProps.router.location.pathname,
+        isPageChanged: true,
+      })
+    }
   }
 
   componentDidMount(){
     this.props.setWindowSize()
     window.addEventListener("resize", this.props.setWindowSize)
+
+    setTimeout(() => this.setState({ isPageChanged: false }), 2000)
   }
 
   componentWillUnmount(){
     window.removeEventListener("resize", this.props.setWindowSize)
   }
 
-  toTop(){
-    animateScroll.scrollToTop({
-      duration: window.pageYOffset / 2.6,
-      smooth: "ease",
-    })
-  }
+  // toTop(){
+  //   animateScroll.scrollToTop({
+  //     duration: window.pageYOffset / 2.6,
+  //     smooth: "ease",
+  //   })
+  // }
 
   render(){
-    const bounceTransition = this.props.windowSize === "sm"
-      ? bounceTransitionSm
-      : bounceTransitionMd
-
-    // const currentPathname = this.props.router.location.pathname
-
     return (
       <div className="App">
 
-        {/*<MyHelmet />*/}
-
-        {/*<Bg
-          className={currentPathname === "/" ? "home" : currentPathname.slice(1)}
-          size={this.props.windowSize === "sm" ? "cover" : "contain"}
-          scale={1}
-        />*/}
         <div
-          className="pageBgImg"
+          className={`pageBgImg ${this.state.isPageChanged && "scale-in"}`}
           style={{
-            backgroundImage: `
-              linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0)),
-              url(${window.__ASSETS__}/img/king-kitan.jpg)`
-          }}
-          >CARVANCL</div>
+            backgroundImage: `url(${window.__ASSETS__}/img/king-kitan.jpg)`
+          }}>CARVANCL</div>
 
         <main
           className={`main ${this.props.windowSize}`}

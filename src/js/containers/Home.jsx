@@ -11,6 +11,8 @@ import LazyLoadImg from "../components/LazyLoadImg"
 const Home = props => (
   <div className="Home page">
 
+    <h1 className="page-title">Home</h1>
+
     <LazyLoadImg className="first-view"
       imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl-none.png`}
       minHeight="50vh"
@@ -47,6 +49,8 @@ const Home = props => (
       <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
       <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
     </ul>
+
+    <h1 className="page-title">Home</h1>
 
   </div>
 )

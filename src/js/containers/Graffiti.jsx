@@ -42,6 +42,8 @@ const Graffiti = ({ ww, wh }) => (
       <h2>window.orientation: {window.orientation}</h2>
     </section>
 
+    <h1 className="page-title">Graffiti</h1>
+
   </div>
 )
 
