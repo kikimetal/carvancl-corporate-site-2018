@@ -91,7 +91,7 @@ if (isset($routes_array[$request_uri])) {
 <body>
 
   <!-- TODO remove env production-->
-    <div class="develop-now">現在改装中です</div>
+    <!-- <div class="develop-now">現在改装中です</div> -->
   <!-- TODO remove env production-->
 
   <div id="app"></div>
