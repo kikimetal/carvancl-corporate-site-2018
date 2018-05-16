@@ -3,6 +3,7 @@
   display: block;
   width: 100%;
   // height: // js
+  overflow-x: hidden;
 
   img{ // fake src
     display: none;
@@ -41,8 +42,8 @@
     font-weight: lighter;
     z-index: 1;
     pointer-events: none;
-    border: 5px solid #111;
-    box-shadow: 0 0 10px 0 #111 inset;
+    // border: 5px solid #111;
+    box-shadow: 0 0 7px 0 #222 inset;
 
     &.hide{
       opacity: 0;

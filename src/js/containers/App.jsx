@@ -162,7 +162,7 @@ class App extends React.Component{
       <div className="App">
 
         <div
-          className={`pageBgImg ${this.state.isPageChanged && "scale-in"}`}
+          className={`pageBgImg ${this.state.isPageChanged ? "on" : "off"}`}
           style={{
             backgroundImage: `url(${window.__ASSETS__}/img/king-kitan.jpg)`
           }}>CARVANCL</div>

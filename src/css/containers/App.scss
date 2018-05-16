@@ -19,7 +19,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--cvl-red);
+    background: var(--cvl-red);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -38,17 +38,26 @@
 
     transform-origin: center;
     transform: scale(1);
-    // animation: page-bg-scale-in 1.5s ease;
-    // @keyframes page-bg-scale-in{
-    //   from{ transform: scale(1); }
-    //   to{ transform: scale(1.1); }
-    // };
+    // filter: blur(10px);
 
-    &.scale-in{
-      animation: page-bg-scale-in 1.5s var(--my-ease-out) both;
+    transition: all 0.3s ease;
+
+    &.off{
+      background-image: none !important;
+    }
+
+    &.on{
+      // animation: page-bg-scale-in 1.5s var(--my-ease-out) both;
+      animation: page-bg-scale-in 1.5s linear both;
       @keyframes page-bg-scale-in{
-        from{ transform: scale(1); }
-        to{ transform: scale(1.1); }
+        from{
+          transform: scale(1);
+          // filter: blur(10px);
+        }
+        to{
+          transform: scale(1.1);
+          // filter: blur(0px);
+        }
       };
     }
   }
