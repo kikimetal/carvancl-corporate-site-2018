@@ -96,7 +96,7 @@ if (isset($routes_array[$request_uri])) {
 
   <div id="app"></div>
   <div id="loader">
-    <div class="Bg"></div>
+    <div class="loader-bg-img"></div>
     <span class="loader-text">LOADING</span>
     <span class="loader-circle"></span>
   </div>

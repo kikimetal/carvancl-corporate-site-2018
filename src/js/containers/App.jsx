@@ -157,8 +157,18 @@ class App extends React.Component{
           size={this.props.windowSize === "sm" ? "cover" : "contain"}
           scale={1}
         />*/}
+        <div
+          className="pageBgImg"
+          style={{
+            backgroundImage: `
+              linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0)),
+              url(${window.__ASSETS__}/img/king-kitan.jpg)`
+          }}
+          >CARVANCL</div>
 
-        <main className={`main ${this.props.windowSize}`}>
+        <main
+          className={`main ${this.props.windowSize}`}
+          >
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/graffiti" component={Graffiti} />
