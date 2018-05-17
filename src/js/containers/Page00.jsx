@@ -8,10 +8,10 @@ import KikiStar from "../components/KikiStar"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
 
-const Home = props => (
-  <div className="Home page">
+const Page00 = props => (
+  <div className="Page00 page">
 
-    <h1 className="page-title">Home</h1>
+    <h1 className="page-title">Page00</h1>
 
     <LazyLoadImg className="first-view"
       imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl-none.png`}
@@ -45,19 +45,19 @@ const Home = props => (
 
 
     <ul className="link-list" style={{padding: "60px 0"}}>
-      <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
+      <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+      <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+      <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
     </ul>
 
-    <h1 className="page-title">Home</h1>
+    <h1 className="page-title">Page00</h1>
 
   </div>
 )
 
-// export default Home
+// export default Page00
 const mapStateToProps = state => ({
   windowSize: state.windowSize,
   router: state.router,
 })
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Page00)

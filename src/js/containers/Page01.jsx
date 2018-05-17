@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
 
-const Graffiti = ({ ww, wh }) => (
-  <div className="Graffiti page">
+const Page01 = ({ ww, wh }) => (
+  <div className="Page01 page">
 
-    <h1 className="page-title">Graffiti</h1>
+    <h1 className="page-title">Page01</h1>
 
     <LazyLoadImg
       imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl.png`}
@@ -28,9 +28,9 @@ const Graffiti = ({ ww, wh }) => (
     <section>
       <h1>LINKS</h1>
       <ul className="link-list" style={{padding: "60px 0"}}>
-        <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
-        <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
-        <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
+        <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+        <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+        <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
       </ul>
     </section>
 
@@ -42,7 +42,7 @@ const Graffiti = ({ ww, wh }) => (
       <h2>window.orientation: {window.orientation}</h2>
     </section>
 
-    <h1 className="page-title">Graffiti</h1>
+    <h1 className="page-title">Page01</h1>
 
   </div>
 )
@@ -52,4 +52,4 @@ const mapStateToProps = state => ({
   wh: state.windowHeight,
 })
 
-export default connect(mapStateToProps)(Graffiti)
+export default connect(mapStateToProps)(Page01)

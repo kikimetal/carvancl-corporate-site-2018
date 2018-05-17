@@ -10,9 +10,9 @@ import ReactTouchEvents from "react-touch-events"
 
 // containers
 import MyHelmet from "./MyHelmet"
-import Home from "./Home"
-import Graffiti from "./Graffiti"
-import WebSite from "./WebSite"
+import Page00 from "./Page00"
+import Page01 from "./Page01"
+import Page02 from "./Page02"
 import Menu from "./Menu"
 import LightsSvg from "./LightsSvg"
 
@@ -171,9 +171,9 @@ class App extends React.Component{
           className={`main ${this.props.windowSize}`}
           >
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/graffiti" component={Graffiti} />
-            <Route path="/website" component={WebSite} />
+            <Route exact path="/" component={Page00} />
+            <Route exact path="/graffiti" component={Page01} />
+            <Route path="/website" component={Page02} />
             <Route component={NotFound} />
           </Switch>
         </main>

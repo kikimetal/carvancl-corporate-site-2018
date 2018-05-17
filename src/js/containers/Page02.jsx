@@ -6,7 +6,7 @@ import Btn from '../components/Btn'
 import NotFound from '../components/NotFound'
 import LazyLoadImg from '../components/LazyLoadImg'
 
-class WebSite extends React.Component{
+class Page02 extends React.Component{
   componentDidMount(){
     if (this.props.dataCondition !== "success") {
       fetch(`${window.__ASSETS__}/websites.json`)
@@ -26,8 +26,8 @@ class WebSite extends React.Component{
   render(){
     if (this.props.dataCondition === "error") {
       return (
-        <div className="WebSite page">
-          <h1 className="page-title top">WebSite</h1>
+        <div className="Page02 page">
+          <h1 className="page-title top">Page02</h1>
           <p style={{
               color: "hotpink",
               fontSize: "28px",
@@ -36,9 +36,9 @@ class WebSite extends React.Component{
       )
     }
     return (
-      <div className="WebSite page">
+      <div className="Page02 page">
 
-        <h1 className="page-title">WebSite</h1>
+        <h1 className="page-title">Page02</h1>
 
         <div className={`Sites ${this.props.isReverse && "reverse"}`}>
           {this.props.data.map((data) => (
@@ -55,7 +55,7 @@ class WebSite extends React.Component{
           ))}
         </div>
 
-        <h1 className="page-title bottom">WebSite</h1>
+        <h1 className="page-title bottom">Page02</h1>
       </div>
     )
   }
@@ -93,4 +93,4 @@ const mapDispatchToProps = dispatch => ({
   setCondition: condition => dispatch(action.setWebsitesDataCondition(condition)),
   setData: data => dispatch(action.setWebsitesData(data)),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(WebSite)
+export default connect(mapStateToProps, mapDispatchToProps)(Page02)

@@ -39,9 +39,9 @@ class Menu extends React.Component{
             >
             {/*<KikiLogoType spin />*/}
             <ul className="link-list">
-              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
             </ul>
           </div>
 
@@ -60,9 +60,9 @@ class Menu extends React.Component{
             }
 
             <ul className="link-list">
-              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Home</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Graffiti</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />WebSite</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
             </ul>
           </div>
         </div>
