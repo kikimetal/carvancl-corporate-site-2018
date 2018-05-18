@@ -1,8 +1,10 @@
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { connect } from "react-redux"
+
 // router switch transition
-import { spring, AnimatedSwitch } from "react-router-transition"
+// import { spring, AnimatedSwitch } from "react-router-transition"
+
 // scroll animation
 import { animateScroll } from "react-scroll"
 // onSwipe onTap
@@ -21,93 +23,6 @@ import Btn from "../components/Btn"
 import Bg from "../components/Bg"
 import NotFound from "../components/NotFound"
 import KikiStar from "../components/KikiStar"
-
-// react-router-transition setting
-/**
- * custom spring creator
- * 全ての値は数値(int)
- * val: 到達する値
- * stiffness: バネを引く強さ -> 高いほどスピードアップ
- * damping: 抵抗力 -> 高いほどバウンドせず、強さに抗う -> スピードダウン
- */
-function bounce(val, override = {}) {
-  return spring(val, {
-    stiffness: 190,
-    damping: 15,
-    ...override,
-  })
-}
-// switchRoute animation
-const bounceTransitionBase = {
-  // start in a transparent, upscaled state
-  atEnter: {
-    opacity: 0,
-    scale: 1.1,
-    // translateY: 0,
-    // translateY: 40,
-  },
-  // leave in a transparent, downscaled state
-  atLeave: {
-    // opacity: bounce(0, {stiffness: 227, damping: 32}),
-    opacity: bounce(0, {stiffness: 207, damping: 35}),
-    scale: 1,
-    // translateY: 0,
-    // translateY: bounce(-20, {stiffness: 122, damping: 24})
-  },
-  // and rest at an opaque, normally-scaled state
-  atActive: {
-    // opacity: bounce(1, {stiffness: 182, damping: 25}),
-    opacity: bounce(1, {stiffness: 82, damping: 35}),
-    // scale: bounce(1, {stiffness: 210, damping: 33}),
-    scale: bounce(1),
-    // translateY: 0,
-    // translateY: bounce(0, {stiffness: 152, damping: 22}),
-  },
-}
-const bounceTransitionSm = {
-  atEnter: {
-    opacity: 0,
-    scale: 1.1,
-    // translateY: 46,
-  },
-  atLeave: {
-    // opacity: bounce(0, {stiffness: 300, damping: 30}),
-    // scale: 1,
-    // translateY: 0,
-  },
-  atActive: {
-    opacity: bounce(1, {stiffness: 112, damping: 35}),
-    scale: bounce(1),
-    // translateY: bounce(0, {stiffness: 162, damping: 23}),
-  },
-}
-// const bounceTransitionMd = bounceTransitionBase
-const bounceTransitionMd = bounceTransitionSm
-
-// we need to map the `scale` prop we define below // to the transform style property
-function mapStyles(styles) {
-  if (styles.scale && styles.translateY) {
-    return {
-      opacity: styles.opacity,
-      transform: `scale(${styles.scale}) translateY(${styles.translateY}px)`,
-    }
-  }
-  if (styles.scale) {
-    return {
-      opacity: styles.opacity,
-      transform: `scale(${styles.scale})`,
-    }
-  }
-  if (styles.translateY) {
-    return {
-      opacity: styles.opacity,
-      transform: `translateY(${styles.translateY}px)`,
-    }
-  }
-  return {
-    opacity: styles.opacity,
-  }
-}
 
 // loader events
 window.addEventListener("load", () => {
