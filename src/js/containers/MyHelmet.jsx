@@ -26,7 +26,7 @@ const checkRoute = path => {
 }
 
 const MyHelmet = ({ currentPath, windowSize }) => {
-  console.log(currentPath)
+
   const thisRoute = checkRoute(currentPath)
   console.log("MyHelmet thisRoute uri: ", thisRoute.uri)
   return (
