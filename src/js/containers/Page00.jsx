@@ -46,8 +46,8 @@ const Page00 = props => (
 
     <ul className="link-list" style={{padding: "60px 0"}}>
       <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink exact to="/graffiti"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink to="/website"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
+      <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+      <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
     </ul>
 
     <h1 className="page-title">Page00</h1>

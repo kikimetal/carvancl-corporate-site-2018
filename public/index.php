@@ -30,8 +30,9 @@ if ($_SERVER["REQUEST_URI"] === $root_uri) {
   $request_uri = "/";
 } else {
   // rootディレクトリ以外へのアクセスは、末尾の "/" は除去
-  $request_uri = rtrim($_SERVER["REQUEST_URI"], "/");
-  // REQUEST_URI には host 以降すべてが含まれるので ($root_uriの長さ - 1文字) を削除
+  // $request_uri = rtrim($_SERVER["REQUEST_URI"], "/");
+  $request_uri = $_SERVER["REQUEST_URI"];
+  // REQUEST_URI には host 以降すべてが含まれるので ($root_uri (basename) の長さ - 1文字 ("/")) を削除
   $request_uri = substr($request_uri, (strlen($root_uri) - 1) );
 }
 
@@ -39,8 +40,16 @@ if ($_SERVER["REQUEST_URI"] === $root_uri) {
 
 // ルーティング。ステータスコードも返す。
 $route = null;
-if (isset($routes_array[$request_uri])) {
-  $route = $routes_array[$request_uri];
+// if (isset($routes_array[$request_uri])) {
+foreach ($routes_array as $page => $value) {
+  if (isset($page["uri"]) && $page["uri"] === $request_uri) {
+    $route = $page;
+    break;
+  }
+}
+
+// ルート確立 or 失敗
+if ($route) {
   http_response_code(200);
 } else {
   http_response_code(404);

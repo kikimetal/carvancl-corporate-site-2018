@@ -172,8 +172,8 @@ class App extends React.Component{
           >
           <Switch>
             <Route exact path="/" component={Page00} />
-            <Route exact path="/graffiti" component={Page01} />
-            <Route path="/website" component={Page02} />
+            <Route exact path="/why/" component={Page01} />
+            <Route path="/how/" component={Page02} />
             <Route component={NotFound} />
           </Switch>
         </main>
