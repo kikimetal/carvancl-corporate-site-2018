@@ -6,8 +6,9 @@ import { NavLink } from "react-router-dom"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
 
-const Page01 = ({ ww, wh }) => (
+const Page01 = (props) => (
   <div className="Page01 page">
+    {console.log(props.redux)}
 
     <h1 className="page-title">Page01</h1>
 
@@ -37,8 +38,8 @@ const Page01 = ({ ww, wh }) => (
 
     <section>
       <h1>TEST</h1>
-      <h2>ww: {ww}</h2>
-      <h2>wh: {wh}</h2>
+      {/*<h2>ww: {props.ww}</h2>
+    <h2>wh: {props.wh}</h2>*/}
       <h2>window.orientation: {window.orientation}</h2>
     </section>
 
@@ -48,8 +49,9 @@ const Page01 = ({ ww, wh }) => (
 )
 
 const mapStateToProps = state => ({
-  ww: state.windowWidth,
-  wh: state.windowHeight,
+  // ww: state.windowWidth,
+  // wh: state.windowHeight,
+  redux: state,
 })
 
 export default connect(mapStateToProps)(Page01)

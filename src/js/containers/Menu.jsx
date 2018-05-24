@@ -1,6 +1,9 @@
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
+
+// containers
+import ConnectedLink from "./ConnectedLink"
 
 // components
 import Btn from "../components/Btn"
@@ -39,9 +42,12 @@ class Menu extends React.Component{
             >
             {/*<KikiLogoType spin />*/}
             <ul className="link-list">
-              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+              {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
+              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />Page00</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></ConnectedLink></li>
             </ul>
           </div>
 
@@ -60,9 +66,12 @@ class Menu extends React.Component{
             }
 
             <ul className="link-list">
-              <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+              {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
+              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
+              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />Page00</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></ConnectedLink></li>
             </ul>
           </div>
         </div>
@@ -83,4 +92,4 @@ const mapStateToDispatch = dispatch => ({
   reverseWebsite: () => dispatch(action.reverseWebsite()),
 })
 
-export default connect(mapStateToProps, mapStateToDispatch)(Menu)
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(Menu))

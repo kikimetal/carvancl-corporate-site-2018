@@ -1,12 +1,16 @@
 import React from "react"
 import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink, withRouter } from "react-router-dom"
+
+// containers
+import ConnectedLink from "./ConnectedLink"
 
 // components
 import Bg from "../components/Bg"
 import KikiStar from "../components/KikiStar"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
+import DelayLink from "../components/DelayLink"
 
 const Page00 = props => (
   <div className="Page00 page">
@@ -44,11 +48,49 @@ const Page00 = props => (
     </section>
 
 
-    <ul className="link-list" style={{padding: "60px 0"}}>
-      <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-      <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
-    </ul>
+    <section>
+      NAV LINK
+      <ul className="link-list" style={{padding: "60px 0"}}>
+        <li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
+        <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
+        <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>
+      </ul>
+    </section>
+
+    <section>
+      LINK
+      <ul className="link-list" style={{padding: "60px 0"}}>
+        <li className="link-list-item"><Link exact="true" to="/"><Btn><i className="fas fa-bug" />Page00</Btn></Link></li>
+        <li className="link-list-item"><Link exact="true" to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></Link></li>
+        <li className="link-list-item"><Link to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></Link></li>
+      </ul>
+    </section>
+
+    <section>
+      DELAY LINKS
+      <ul className="link-list" style={{padding: "60px 0"}}>
+        <li className="link-list-item"><DelayLink to="/"><Btn><i className="fas fa-bug" />Page00</Btn></DelayLink></li>
+        <li className="link-list-item"><DelayLink to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></DelayLink></li>
+        <li className="link-list-item"><DelayLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></DelayLink></li>
+      </ul>
+    </section>
+    <section>
+      delay push
+      <ul className="link-list" style={{padding: "60px 0"}}>
+        <li><Btn onClick={() => props.delayPush("/why/", 0)}><i className="fas fa-bug" />Page01</Btn></li>
+        <li><Btn onClick={() => props.delayPush("/why/", 2000)}><i className="fas fa-bug" />Page01</Btn></li>
+      </ul>
+    </section>
+    <section>
+      withRouter props.history
+      <ul className="link-list" style={{padding: "60px 0"}}>
+        <li><Btn onClick={() => props.history.push("/why/")}><i className="fas fa-bug" />Page01</Btn></li>
+      </ul>
+    </section>
+    <section>
+      ConnectedLink
+      <ConnectedLink to="/why/"><Btn>ConnectedLink</Btn></ConnectedLink>
+    </section>
 
     <h1 className="page-title">Page00</h1>
 
@@ -60,4 +102,11 @@ const mapStateToProps = state => ({
   windowSize: state.windowSize,
   router: state.router,
 })
-export default connect(mapStateToProps)(Page00)
+// export default connect(mapStateToProps)(Page00)
+
+// modules
+import * as action from "../modules/action"
+const mapDispatchToProps = dispatch => ({
+  delayPush: (to, duration) => dispatch(action.delayPush(to, duration)),
+})
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page00))

@@ -42,24 +42,24 @@
 
     transition: all 0.3s ease;
 
-    &.off{
-      background-image: none !important;
-    }
-
-    &.on{
-      // animation: page-bg-scale-in 1.5s var(--my-ease-out) both;
-      animation: page-bg-scale-in 1.5s linear both;
-      @keyframes page-bg-scale-in{
-        from{
-          transform: scale(1);
-          // filter: blur(10px);
-        }
-        to{
-          transform: scale(1.1);
-          // filter: blur(0px);
-        }
-      };
-    }
+    // &.off{
+    //   background-image: none !important;
+    // }
+    //
+    // &.on{
+    //   // animation: page-bg-scale-in 1.5s var(--my-ease-out) both;
+    //   animation: page-bg-scale-in 1.5s linear both;
+    //   @keyframes page-bg-scale-in{
+    //     from{
+    //       transform: scale(1);
+    //       // filter: blur(10px);
+    //     }
+    //     to{
+    //       transform: scale(1.1);
+    //       // filter: blur(0px);
+    //     }
+    //   };
+    // } // .on
   }
 
   // ******************** sm: mobile layout ********************
@@ -75,18 +75,39 @@
       color: lightgrey;
       background: var(--cvl-red);
 
+      // page-in
       transform-origin: 50% 50vh; // fade-in-scale の画面中央設定
       animation:
-        page-fade-in-scale 1.1s var(--my-ease-out) 1s both,
-        page-fade-in-opacity 0.7s ease 1s both;
+        page-fade-in-scale 0.4s var(--my-ease-out) 0.4s both,
+        page-fade-in-opacity 0.5s ease 0.4s both;
 
       @keyframes page-fade-in-scale{
-        from{ transform: scale(1.1); }
-        to{ text-transform: scale(1); }
+        // from{ transform: scale(1.1); }
+        // to{ transform: scale(1); }
+        from{ transform: scaleX(1.3); }
+        to{ transform: scaleX(1); }
       }
       @keyframes page-fade-in-opacity{
         from{ opacity: 0; }
         to{ opacity: 1; }
+      }
+
+      // page-out
+      &.leave{
+        animation:
+          page-fade-out-scale 0.4s var(--my-ease-out) 0s both,
+          page-fade-out-opacity 0.3s ease 0s both;
+
+        @keyframes page-fade-out-scale{
+          from{ transform: scaleX(1); }
+          to{ transform: scaleX(1.1); }
+          // from{ filter: blur(0px); }
+          // to{ filter: blur(10px); }
+        }
+        @keyframes page-fade-out-opacity{
+          from{ opacity: 1; }
+          to{ opacity: 0; }
+        }
       }
 
       .page-title{
@@ -107,14 +128,14 @@
         bottom: 0;
       }
     } // .animated-switch-wrapper
-
-    &.md,
-    &.lg,
-    &.xl{
-      margin-top: 60px;
-      border-top: 2px solid crimson;
-    }
   } // .main
+
+  .main.md,
+  .main.lg,
+  .main.xl{
+    // margin-top: 60px;
+    // border-top: 2px solid crimson;
+  }
 
 
 
