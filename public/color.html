@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cvl color test</title>
+    <style media="screen">
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      body{
+        color: #333;
+        font-family: serif;
+        text-align: center;
+      }
+      .set{
+        display: flex;
+        flex-flow: row;
+        width: 100%;
+        height: 100vh;
+      }
+      .set .c01{
+        width: 70%;
+        height: 100%;
+        background: var(--c01);
+      }
+      .set .c02{
+        width: 25%;
+        height: 100%;
+        background: var(--c02);
+      }
+      .set .c03{
+        width: 4%;
+        height: 100%;
+        background: var(--c03);
+      }
+      .set .c04{
+        width: 1%;
+        height: 100%;
+        background: var(--c04);
+      }
+
+      .set01{
+        --c01: rgb(159, 13, 13);
+        --c02: rgb(33, 33, 33);
+        --c03: rgb(230, 158, 0);
+        --c04: #fff;
+      }
+      .set02{
+        --c01: lightgrey;
+        --c02: rgb(203, 11, 46);
+        --c03: #333;
+        --c04: rgb(230, 158, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CVL COLOR TEST</h1>
+    <div class="set set01">
+      <div class="c01"></div>
+      <div class="c02"></div>
+      <div class="c03"></div>
+      <div class="c04"></div>
+    </div>
+    <div class="set set02">
+      <div class="c01"></div>
+      <div class="c02"></div>
+      <div class="c03"></div>
+      <div class="c04"></div>
+    </div>
+    <div class="set set03">
+      <div class="c01"></div>
+      <div class="c02"></div>
+      <div class="c03"></div>
+      <div class="c04"></div>
+    </div>
+  </body>
+</html>

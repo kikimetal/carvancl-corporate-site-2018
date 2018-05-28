@@ -27,7 +27,7 @@ class Page02 extends React.Component{
     if (this.props.dataCondition === "error") {
       return (
         <div className="Page02 page">
-          <h1 className="page-title top">Page02</h1>
+          <h1 className="page-title top">Page02: HOW</h1>
           <p style={{
               color: "hotpink",
               fontSize: "28px",
@@ -35,10 +35,11 @@ class Page02 extends React.Component{
         </div>
       )
     }
+
     return (
       <div className="Page02 page">
 
-        <h1 className="page-title">Page02</h1>
+        <h1 className="page-title">Page02: HOW</h1>
 
         <div className={`Sites ${this.props.isReverse && "reverse"}`}>
           {this.props.data.map((data) => (

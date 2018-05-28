@@ -10,7 +10,7 @@ const Page01 = (props) => (
   <div className="Page01 page">
     {console.log(props.redux)}
 
-    <h1 className="page-title">Page01</h1>
+    <h1 className="page-title">Page01: WHY</h1>
 
     <LazyLoadImg
       imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl.png`}

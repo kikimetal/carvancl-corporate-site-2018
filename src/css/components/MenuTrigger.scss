@@ -16,13 +16,15 @@
   overflow: hidden;
 
   transform-origin: center;
-  transform: rotate(45deg);
+  // transform: rotate(45deg);
+  padding: 10px;
+  border-radius: 50%;
 
   .icon-img{
     display: block;
     color: #fff;
     transform-origin: center;
-    transform: rotate(-45deg);
+    // transform: rotate(-45deg);
   }
 
   &.collapse{

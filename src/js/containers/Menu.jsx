@@ -45,9 +45,9 @@ class Menu extends React.Component{
               {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
               <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
-              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />Page00</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />WHY</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />HOW</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />WHAT</Btn></ConnectedLink></li>
             </ul>
           </div>
 
@@ -56,6 +56,8 @@ class Menu extends React.Component{
     } else { // over md
       return (
         <div className="Menu md">
+          <div className="container-left">CARVANCL</div>
+          <div className="container-right">CONTACT</div>
           <div className="container">
 
             {
@@ -69,9 +71,18 @@ class Menu extends React.Component{
               {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
               <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
               <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
-              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />Page00</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/"><Btn>
+                {/*<i className="fas fa-bug" />*/}
+                WHY
+                </Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/why/"><Btn>
+                {/*<i className="fab fa-accusoft" />*/}
+                HOW
+                </Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/how/"><Btn>
+                {/*<i className="fas fa-code" />*/}
+                WHAT
+                </Btn></ConnectedLink></li>
             </ul>
           </div>
         </div>

@@ -51,14 +51,19 @@ export const setWebsitesData = data => ({
   data,
 })
 
-import { push } from "react-router-redux"
-export const delayPush = (to, duration) => {
-  duration = duration || 500
-  return (dispatch) => {
-    setTimeout(() => dispatch(push({pathname: to})), duration)
-    // document.querySelector(".page").classList.add("leave")
-  }
-}
+export const setWpData = data => ({
+  type: "SET_WP_DATA",
+  data,
+})
+
+// import { push } from "react-router-redux"
+// export const delayPush = (to, duration) => {
+//   duration = duration || 500
+//   return (dispatch) => {
+//     setTimeout(() => dispatch(push({pathname: to})), duration)
+//     // document.querySelector(".page").classList.add("leave")
+//   }
+// }
 
 
 // fetch ---

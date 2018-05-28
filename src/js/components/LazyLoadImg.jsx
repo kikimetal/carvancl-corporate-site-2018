@@ -24,9 +24,9 @@ export default class LazyLoadImg extends React.Component{
 
         <div className={`placeholder ${this.state.isShowPlaceholder ? "show" : "hide"}`}>
           {/*<span><i className="far fa-sun fa-spin"></i></span>*/}
-          {/*<span><i class="fas fa-compact-disc fa-spin"></i></span>*/}
+          {/*<span><i className="fas fa-compact-disc fa-spin"></i></span>*/}
           <span>
-            <i class="fab fa-quinscape fa-spin"></i>
+            <i className="fab fa-quinscape fa-spin"></i>
           </span>
           <span> LOADING...</span>
         </div>

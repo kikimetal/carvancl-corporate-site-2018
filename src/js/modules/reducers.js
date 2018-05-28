@@ -39,3 +39,10 @@ export const websitesData = (state = [], action) => {
   }
   return state
 }
+
+export const wpData = (state = null, action) => {
+  if (action.type === "SET_WP_DATA") {
+    return action.data
+  }
+  return state
+}

@@ -10,7 +10,7 @@
 
   .lights-effect{
     fill: transparent;
-    animation: lights-effect 7s linear alternate infinite;
+    animation: lights-effect 6s linear alternate infinite;
     @keyframes lights-effect{
       0%{
         fill: transparent;
@@ -21,11 +21,8 @@
       30%{
         fill: rgb(218, 0, 0);
       }
-      50%{
-        fill: rgb(255, 215, 163);
-      }
       70%{
-        fill: rgb(51, 28, 28);
+        fill: rgb(255, 215, 163);
       }
       90%{
         fill: transparent;
