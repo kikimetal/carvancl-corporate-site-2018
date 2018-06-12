@@ -4,50 +4,34 @@ import { connect } from "react-redux"
 
 // containers
 import ConnectedLink from "./ConnectedLink"
+import MenuTrigger from "./MenuTrigger"
 
 // components
 import Btn from "../components/Btn"
 import KikiLogoType from "../components/KikiLogoType"
-import MenuTrigger from "../components/MenuTrigger"
 // import HeightTransitionToFull from "../components/HeightTransitionToFull"
 
 class Menu extends React.Component{
   constructor(props){
     super(props)
-    this.state = { isShowMobileMenu: false }
-    this.toggleMobileMenu = this.toggleMobileMenu.bind(this)
-  }
-  toggleMobileMenu(){
-    this.setState({ isShowMobileMenu: !this.state.isShowMobileMenu })
   }
   render(){
     if (this.props.windowSize === "sm") { // sm
       return (
         <div className="Menu sm">
 
-          <div className="menu-switch" onClick={this.toggleMobileMenu}>
-            <MenuTrigger collapse={this.state.isShowMobileMenu} />
+          <div className="menu-switch">
+            <MenuTrigger />
           </div>
 
-          {
-            this.props.router.location.pathname === "/website" &&
-            <div className="sort-switch">
-              <Btn onClick={this.props.reverseWebsite}><i className="fas fa-bug" />{this.props.isReverseWebsite ? "古い" : "新しい"}順にする</Btn>
-            </div>
-          }
-
           <div
-            className={`container ${this.state.isShowMobileMenu ? "show" : "hide"}`}
-            onClick={this.toggleMobileMenu}
+            className={`container ${this.props.mobileMenuContext ? "show" : "hide"}`}
+            onClick={this.props.toggleMobileMenu}
             >
-            {/*<KikiLogoType spin />*/}
             <ul className="link-list">
-              {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
-              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />WHY</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />HOW</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />WHAT</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />HOME</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />WHY</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />HOW</Btn></ConnectedLink></li>
             </ul>
           </div>
 
@@ -60,28 +44,18 @@ class Menu extends React.Component{
           <div className="container-right">CONTACT</div>
           <div className="container">
 
-            {
-              this.props.router.location.pathname === "/website" &&
-              <div className="sort-switch">
-                <Btn onClick={this.props.reverseWebsite}><i className="fas fa-bug" />{this.props.isReverseWebsite ? "古い" : "新しい"}順にする</Btn>
-              </div>
-            }
-
             <ul className="link-list">
-              {/*<li className="link-list-item"><NavLink exact to="/"><Btn><i className="fas fa-bug" />Page00</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink exact to="/why/"><Btn><i className="fab fa-accusoft" />Page01</Btn></NavLink></li>
-              <li className="link-list-item"><NavLink to="/how/"><Btn><i className="fas fa-code" />Page02</Btn></NavLink></li>*/}
               <li className="link-list-item"><ConnectedLink to="/"><Btn>
                 {/*<i className="fas fa-bug" />*/}
-                WHY
+                HOME
                 </Btn></ConnectedLink></li>
               <li className="link-list-item"><ConnectedLink to="/why/"><Btn>
                 {/*<i className="fab fa-accusoft" />*/}
-                HOW
+                WHY
                 </Btn></ConnectedLink></li>
               <li className="link-list-item"><ConnectedLink to="/how/"><Btn>
                 {/*<i className="fas fa-code" />*/}
-                WHAT
+                HOW
                 </Btn></ConnectedLink></li>
             </ul>
           </div>
@@ -91,16 +65,14 @@ class Menu extends React.Component{
   }
 }
 
-// export default Menu
 const mapStateToProps = state => ({
   windowSize: state.windowSize,
-  isReverseWebsite: state.isReverseWebsite,
-  router: state.router, // <- 必須 ここで router を読み込まないと、react-router-transition が動作しない。
+  mobileMenuContext: state.mobileMenuContext,
 })
 
 import * as action from "../modules/action"
 const mapStateToDispatch = dispatch => ({
-  reverseWebsite: () => dispatch(action.reverseWebsite()),
+  toggleMobileMenu: () => dispatch(action.toggleMobileMenu()),
 })
 
 export default withRouter(connect(mapStateToProps, mapStateToDispatch)(Menu))

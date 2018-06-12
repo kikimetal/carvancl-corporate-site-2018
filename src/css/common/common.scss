@@ -15,6 +15,7 @@ html{
   --kiki-pink: rgb(255, 157, 238);
   --kiki-lavender: rgb(139, 131, 218);
   --cvl-red: rgb(171, 28, 28);
+  --cvl-grey: #eee;
 
   // --my-ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
   --my-ease-out: cubic-bezier(0, 0.92, 0.44, 1);
@@ -29,7 +30,7 @@ html{
     overflow-x: hidden;
     background: var(--cvl-red);
 
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
     color: #333;
     text-align: center;
   }

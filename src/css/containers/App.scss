@@ -17,8 +17,10 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     background: var(--cvl-red);
     background-repeat: no-repeat;
     background-position: center;
@@ -42,24 +44,9 @@
 
     transition: all 0.3s ease;
 
-    // &.off{
-    //   background-image: none !important;
-    // }
-    //
-    // &.on{
-    //   // animation: page-bg-scale-in 1.5s var(--my-ease-out) both;
-    //   animation: page-bg-scale-in 1.5s linear both;
-    //   @keyframes page-bg-scale-in{
-    //     from{
-    //       transform: scale(1);
-    //       // filter: blur(10px);
-    //     }
-    //     to{
-    //       transform: scale(1.1);
-    //       // filter: blur(0px);
-    //     }
-    //   };
-    // } // .on
+    &.off{
+      background-image: linear-gradient(var(--cvl-grey), var(--cvl-grey)) !important;
+    }
   }
 
   // ******************** sm: mobile layout ********************
@@ -72,19 +59,21 @@
       width: 100%;
       min-height: 100%;
 
-      color: lightgrey;
-      background: var(--cvl-red);
+      // color: lightgrey;
+      // background: var(--cvl-red);
+      color: #333;
+      background: #eee;
 
       // page-in
       transform-origin: 50% 50vh; // fade-in-scale の画面中央設定
       animation:
-        page-fade-in-scale 0.4s var(--my-ease-out) 0.4s both,
-        page-fade-in-opacity 0.5s ease 0.4s both;
+        page-fade-in-scale 0.3s var(--my-ease-out) 0.3s both,
+        page-fade-in-opacity 0.4s ease 0.3s both;
 
       @keyframes page-fade-in-scale{
         // from{ transform: scale(1.1); }
         // to{ transform: scale(1); }
-        from{ transform: scaleX(1.3); }
+        from{ transform: scaleX(1.1); }
         to{ transform: scaleX(1); }
       }
       @keyframes page-fade-in-opacity{
@@ -101,8 +90,6 @@
         @keyframes page-fade-out-scale{
           from{ transform: scaleX(1); }
           to{ transform: scaleX(1.1); }
-          // from{ filter: blur(0px); }
-          // to{ filter: blur(10px); }
         }
         @keyframes page-fade-out-opacity{
           from{ opacity: 1; }
@@ -115,19 +102,6 @@
         font-size: 50px;
       }
     } // .page
-
-    // .animated-switch-wrapper {
-    //   position: relative;
-    //   height: 100%;
-    //
-    //   & > div {
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //   }
-    // } // .animated-switch-wrapper
   } // .main
 
   .main.md,
@@ -138,27 +112,7 @@
   }
 
 
-
   // ******************** md middle size layout ********************
   // @media screen and (min-width: 768px){
-  //
-  //   main.main{
-  //     border: 3px solid red;
-  //
-  //     .animated-switch-wrapper {
-  //       position: absolute;
-  //       top: 0;
-  //       left: 0;
-  //       right: 0;
-  //       width: 100%;
-  //       height: 100%;
-  //
-  //       & > div{
-  //         -webkit-overflow-scrolling: touch;
-  //         height: 100%;
-  //         overflow-y: scroll;
-  //       }
-  //     }
-  //   }
   // }
 }

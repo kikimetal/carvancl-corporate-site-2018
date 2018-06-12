@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 
 // router switch transition
@@ -36,29 +36,34 @@ class App extends React.Component{
   constructor(props) {
     super(props)
     this.props.setWindowSize()
-    // this.toTop = this.toTop.bind(this)
-    this.state = {
-      pathname: this.props.router.location.pathname,
-      isPageChanged: true,
-    }
+    // this.pageMoveTo = this.pageMoveTo.bind(this)
+    // this.state = {
+    //   pathname: this.props.router.location.pathname,
+    //   isPageMoving: true,
+    // }
   }
 
   // componentWillUpdate(){
-  componentWillReceiveProps(nextProps){
-    if (nextProps.router.location.pathname !== this.props.router.location.pathname) {
-      setTimeout(() => this.setState({ isPageChanged: false }), 2000)
-      this.setState({
-        pathname: nextProps.router.location.pathname,
-        isPageChanged: true,
-      })
-    }
-  }
+  // componentWillReceiveProps(nextProps){
+  //   if (nextProps.router.location.pathname !== this.props.router.location.pathname) {
+  //     this.pageMoveTo(nextProps.router.location.pathname)
+  //     console.log(nextProps.router.location.pathname)
+  //   }
+  // }
+
+  // pageMoveTo(nextPath){
+  //   setTimeout(() => this.setState({ isPageMoving: false }), 1800)
+  //   this.setState({
+  //     pathname: nextPath,
+  //     isPageMoving: true,
+  //   })
+  // }
 
   componentDidMount(){
     this.props.setWindowSize()
     window.addEventListener("resize", this.props.setWindowSize)
 
-    setTimeout(() => this.setState({ isPageChanged: false }), 2000)
+    // setTimeout(() => this.setState({ isPageMoving: false }), 1800)
   }
 
   componentWillUnmount(){
@@ -77,10 +82,10 @@ class App extends React.Component{
       <div className="App">
 
         <div
-          className={`pageBgImg ${this.state.isPageChanged ? "on" : "off"}`}
+          className={`pageBgImg ${this.props.isPageMoving ? "on" : "off"}`}
           style={{
-            backgroundImage: `url(${window.__ASSETS__}/img/king-kitan.jpg)`
-          }}>CARVANCL</div>
+            backgroundImage: `url(${window.__ASSETS__}/img/king-kitan.jpg)`,
+          }}>{this.props.shortMessage}</div>
 
         <main
           className={`main ${this.props.windowSize}`}
@@ -97,7 +102,7 @@ class App extends React.Component{
           <Menu/>
         </nav>
 
-        <LightsSvg />
+        {/*<LightsSvg />*/}
 
         <MyHelmet />
 
@@ -108,7 +113,10 @@ class App extends React.Component{
 
 const mapStateToProps = state => ({
   windowSize: state.windowSize,
-  router: state.router, // <- 必須。ここで router を読み込まないと、react-router-transition が動作しない。
+  // windowHeight: state.windowHeight,
+  isPageMoving: state.isPageMoving,
+  moveToPathname: state.moveToPathname,
+  shortMessage: state.shortMessage,
 })
 
 import * as action from "../modules/action"
@@ -116,4 +124,4 @@ const mapStateToDispatch = dispatch => ({
   setWindowSize: () => dispatch(action.setWindowSize()),
 })
 
-export default connect(mapStateToProps, mapStateToDispatch)(App)
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(App))

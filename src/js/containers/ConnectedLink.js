@@ -15,12 +15,13 @@ class ConnectedLink extends React.Component{
 
     const { history, replace, to, duration } = this.props
 
-    // 現在のページかどうか
-    let {className} = this.props
+    // 現在のページかどうか NavLink みたく current-page に "active" class 付けてあげる
+    let { className } = this.props
     className += history.location.pathname === to ? " active" : ""
 
-    // warnig 原因の staticContext を切り取り
-    let {staticContext, ...inheritProps} = this.props
+    // 継承する props を設定する
+    // warnig 原因の staticContext と、 redux の action を切り取り
+    let {staticContext, pageMoveToPathname, ...inheritProps} = this.props
     // className 合成
     inheritProps = {
       ...inheritProps,
@@ -28,7 +29,13 @@ class ConnectedLink extends React.Component{
     }
 
     const handleClick = e => {
+
       if (this.props.onClick) this.props.onClick(e);
+
+      if (window.location.pathname === to) {
+        e.preventDefault()
+        return false
+      }
 
       if (
         !e.defaultPrevented && // onClick prevented default
@@ -36,15 +43,22 @@ class ConnectedLink extends React.Component{
         !this.props.target && // let browser handle "target=_blank" etc.
         !isModifiedEvent(e) // ignore clicks with modifier keys
       ) {
+        // ok
         e.preventDefault();
 
         setTimeout(() => {
           replace ? history.replace(to) : history.push(to)
         }, duration)
+
+        // set redux
+        this.props.pageMoveToPathname(to)
+        console.log("nextPath", to)
+
+        // set CSS-class to current page
+        const thisPage = document.querySelector(".page")
+        thisPage.classList.add("leave")
       }
 
-      const thisPage = document.querySelector(".page")
-      thisPage.classList.add("leave")
     }
 
     return (
@@ -55,11 +69,13 @@ class ConnectedLink extends React.Component{
 
 ConnectedLink.defaultProps = {
   to: "/",
-  duration: 500,
+  duration: 300,
 }
 
-// const mapStateToProps = state => ({
-//   // router: state.router,
-// })
-// export default withRouter(connect()(ConnectedLink))
-export default withRouter(ConnectedLink)
+const mapStateToProps = state => ({})
+import * as action from "../modules/action"
+const mapStateToDispatch = dispatch => ({
+  pageMoveToPathname: (nextPath) => dispatch(action.pageMoveToPathname(nextPath)),
+})
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(ConnectedLink))
+// export default withRouter(ConnectedLink)

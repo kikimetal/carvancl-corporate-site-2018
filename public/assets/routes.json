@@ -1,38 +1,44 @@
 {
   "page00": {
+    "canonical": "https://www.carvancl.co.jp",
     "uri": "/",
     "title": "CARVANCL カーバンクル | 芸大・美大生のキャリアを広げる事業会社",
     "description": "株式会社カーバンクルの公式サイトです。",
-    "canonical": "https://www.carvancl.co.jp"
+    "shortMessage": "unset message..."
   },
   "page01": {
+    "canonical": "https://www.carvancl.co.jp/graffiti",
     "uri": "/why/",
     "title": "why | 阿鼻叫喚",
     "description": "meta description of Graffiti.",
-    "canonical": "https://www.carvancl.co.jp/graffiti"
+    "shortMessage": "なぜこうなった？"
   },
   "page02": {
+    "canonical": "https://www.carvancl.co.jp/website",
     "uri": "/how/",
     "title": "how | 創造",
     "description": "meta description of WebSite.",
-    "canonical": "https://www.carvancl.co.jp/website"
+    "shortMessage": "unset message..."
   },
   "page03": {
+    "canonical": "https://www.carvancl.co.jp/products",
     "uri": "/what/",
     "title": "what | 足るを知らず",
     "description": "meta description of Products.",
-    "canonical": "https://www.carvancl.co.jp/products"
+    "shortMessage": "unset message..."
   },
   "page99": {
+    "canonical": "https://www.carvancl.co.jp/products/cyan",
     "uri": "/999/",
     "title": "999",
     "description": "meta description of 999.",
-    "canonical": "https://www.carvancl.co.jp/products/cyan"
+    "shortMessage": "unset message..."
   },
   "page99": {
+    "canonical": "https://www.carvancl.co.jp/products/yellow",
     "uri": "/999/",
     "title": "999",
     "description": "meta description of 999.",
-    "canonical": "https://www.carvancl.co.jp/products/yellow"
+    "shortMessage": "unset message..."
   }
 }
