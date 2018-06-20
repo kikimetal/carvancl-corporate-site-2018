@@ -57,7 +57,8 @@ import sourcemaps from "gulp-sourcemaps"
 
 const scssPath = [
   "!./src/css/test/**/*",
-  "./src/css/common/*.scss",
+  // "./src/css/common/*.scss",
+  "./src/css/common/common.scss",
   "./src/css/*.scss",
   "./src/css/**/*.scss",
 ]

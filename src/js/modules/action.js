@@ -56,16 +56,6 @@ export const setWpData = data => ({
   data,
 })
 
-// import { push } from "react-router-redux"
-// export const delayPush = (to, duration) => {
-//   duration = duration || 500
-//   return (dispatch) => {
-//     setTimeout(() => dispatch(push({pathname: to})), duration)
-//     // document.querySelector(".page").classList.add("leave")
-//   }
-// }
-
-
 // fetch ---
 // TODO
 // export const fetchJSON = (url, ...actions) => {
@@ -95,8 +85,6 @@ const checkRoute = path => {
 
 export const pageMoveToPathname = (nextPath) => {
 
-  // console.log("w-l-p", window.location.pathname)
-  // console.log("nextPath", nextPath)
   if (window.location.pathname === nextPath) return false
 
   return (dispatch) => {

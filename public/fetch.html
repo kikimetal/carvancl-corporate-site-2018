@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>g-spread-sheet test</title>
+    <style media="screen">
+      #img{
+        display: block;
+        width: 200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">title</h1>
+    <img id="img" src="" alt="">
+    <script>
+      const url = "http://localhost:8888/gss-php.php?sheetName=news&id&title&img-src&color&img-alt-text";
+      fetch(url)
+        .then(res => res.json())
+        .then(arr => {
+          document.querySelector("#title").innerHTML = arr[0]["title"];
+          var img = document.querySelector("#img");
+          img.src = arr[0]["img-src"];
+          img.alt = arr[0]["img-alt-text"];
+          console.log(img);
+        })
+        .catch(error => console.error(error));
+    </script>
+  </body>
+</html>

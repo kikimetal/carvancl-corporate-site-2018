@@ -20,7 +20,8 @@ $assets_url = $root_url . $root_uri . 'assets';
 // echo "assets_url: " . $assets_url . "<br>"; // TODO: remove this
 
 // ルーティング情報を引き出す
-$routes = file_get_contents("./assets/routes.json");
+$routesJsonUrl = "./assets/routes.json";
+$routes = file_get_contents($routesJsonUrl);
 $routes = mb_convert_encoding($routes, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $routes_array = json_decode($routes, true); // 配列へ
 // アクセスされたPathを取得
@@ -94,14 +95,14 @@ if ($route) {
         z-index: 999999999999999;
       }
     </style>
-    <style>
-    @import url('https://fonts.googleapis.com/css?family=Emblema+One|Katibeh|Vesper+Libre:900');
+    <!-- style>
+    /* @import url('https://fonts.googleapis.com/css?family=Emblema+One|Katibeh|Vesper+Libre:900'); */
     body{
-      /* font-family: 'Katibeh', cursive; */
+      /* font-family: 'Katibeh', sans-serif; */
       /* font-family: 'Vesper Libre', serif; */
-      font-family: 'Emblema One', serif, "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif;
+      /* font-family: 'Emblema One', serif, "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif; */
     }
-    </style>
+  </style -->
   <!-- TODO remove env production-->
 
 </head>
