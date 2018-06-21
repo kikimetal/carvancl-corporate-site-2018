@@ -32,8 +32,10 @@ class ConnectedLink extends React.Component{
 
       if (this.props.onClick) this.props.onClick(e);
 
-      if (window.location.pathname === to) {
+      // 現在のパスと同じなら終了
+      if (this.props.location.pathname === to) {
         e.preventDefault()
+        // e.stopPropagation()
         return false
       }
 
@@ -44,7 +46,7 @@ class ConnectedLink extends React.Component{
         !isModifiedEvent(e) // ignore clicks with modifier keys
       ) {
         // ok
-        e.preventDefault();
+        e.preventDefault()
 
         setTimeout(() => {
           replace ? history.replace(to) : history.push(to)
@@ -69,7 +71,7 @@ class ConnectedLink extends React.Component{
 
 ConnectedLink.defaultProps = {
   to: "/",
-  duration: 300,
+  duration: 260,
 }
 
 const mapStateToProps = state => ({})
