@@ -28,9 +28,9 @@
     align-items: center;
 
     .over-text{
-      font-size: 8vmin;
-      font-weight: bold;
-      color: #fafafa;
+      font-size: 6vmin;
+      font-weight: normal;
+      color: #eee;
       z-index: 1;
     }
 
@@ -41,19 +41,20 @@
       right: 0;
       bottom: 0;
 
-      background: var(--cvl-red);
+      background: rgba(0,0,0,0.2);
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
+      background-blend-mode: multiply;
 
       transform-origin: center;
-      transform: scale(1);
+      transform: scale(1.1);
       transition: all 0.3s ease;
     }
 
     &.on .bg{
       transition: all 2s linear;
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
     &.off .bg{
       background-image: linear-gradient(var(--cvl-grey), var(--cvl-grey)) !important;

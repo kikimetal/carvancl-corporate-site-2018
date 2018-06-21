@@ -4,21 +4,21 @@
     "uri": "/",
     "title": "CARVANCL カーバンクル | 芸大・美大生のキャリアを広げる事業会社",
     "description": "株式会社カーバンクルの公式サイトです。",
-    "shortMessage": "unset message..."
+    "shortMessage": "クリエイティブを探求する"
   },
   "page01": {
     "canonical": "https://www.carvancl.co.jp/graffiti",
     "uri": "/why/",
     "title": "why | 阿鼻叫喚",
     "description": "meta description of Graffiti.",
-    "shortMessage": "なぜこうなった？"
+    "shortMessage": "CARVANCL: オリジン"
   },
   "page02": {
     "canonical": "https://www.carvancl.co.jp/website",
     "uri": "/how/",
     "title": "how | 創造",
     "description": "meta description of WebSite.",
-    "shortMessage": "unset message..."
+    "shortMessage": "成し遂げなければならない！"
   },
   "page03": {
     "canonical": "https://www.carvancl.co.jp/products",
