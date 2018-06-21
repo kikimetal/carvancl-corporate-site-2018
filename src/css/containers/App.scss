@@ -67,14 +67,12 @@
       // page-in
       transform-origin: 50% 50vh; // fade-in-scale の画面中央設定
       animation:
-        page-fade-in-scale 0.3s var(--my-ease-out) 0.3s both,
-        page-fade-in-opacity 0.4s ease 0.3s both;
+        page-fade-in-scale 0.8s var(--my-ease-out) 1.3s both,
+        page-fade-in-opacity 0.7s ease 1.3s both;
 
       @keyframes page-fade-in-scale{
-        // from{ transform: scale(1.1); }
-        // to{ transform: scale(1); }
-        from{ transform: scaleX(1.1); }
-        to{ transform: scaleX(1); }
+        from{ filter: blur(11px); }
+        to{ filter: blur(0); }
       }
       @keyframes page-fade-in-opacity{
         from{ opacity: 0; }
@@ -84,12 +82,12 @@
       // page-out
       &.leave{
         animation:
-          page-fade-out-scale 0.4s var(--my-ease-out) 0s both,
-          page-fade-out-opacity 0.3s ease 0s both;
+          page-fade-out-scale 0.5s var(--my-ease-out) 0s both,
+          page-fade-out-opacity 0.5s ease 0s both;
 
         @keyframes page-fade-out-scale{
-          from{ transform: scaleX(1); }
-          to{ transform: scaleX(1.1); }
+          // from{ transform: scaleX(1); }
+          // to{ transform: scaleX(1.05); }
         }
         @keyframes page-fade-out-opacity{
           from{ opacity: 1; }

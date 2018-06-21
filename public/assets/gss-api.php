@@ -1,12 +1,11 @@
 <?php
-
+// google spreadsheets id
 const GSSID = "17emL3haHaFgGzw8B8C_lXHTZIK_9K9zE0nILAPJn7-0";
-
-// $request_data_arr = $_GET;
-if (!empty($_GET) || !empty($_GET["sheetName"])) {
-  // URL文字列を日本語にデコード
-  $sheetName = urldecode($_GET["sheetName"]);
-  $sheet_data_json_obj = getJSONfromGSS($sheetName, $_GET, GSSID);
+// GET リクエストがきちんとあるか
+if (!empty($_GET) && !empty($_GET["sheetName"])) {
+  // 引数を元に json object を取得。失敗で false が返る。
+  $sheet_data_json_obj = getJSONfromGSS($_GET["sheetName"], $_GET, GSSID);
+  // 与えられた json object を元に http response を返す。
   response_json($sheet_data_json_obj);
 } else {
   response_json(null);
@@ -29,11 +28,11 @@ function getJSONfromGSS($sheetName, $request_data_arr, $gssid) {
   $json_obj = json_decode($json_str);
 
   // オブジェクト内の必要なデータ(entry)を取り出す
-  $entry = $json_obj->feed->entry;
+  $entry_sheets = $json_obj->feed->entry;
 
   // ターゲット($sheetName)になってる名前のシートのシートIDが入っているURIを調べる
   $targetSheetIdURI = null;
-  foreach ($entry as $sheet) {
+  foreach ($entry_sheets as $sheet) {
     if ($sheet->title->{'$t'} === $sheetName) {
       $targetSheetIdURI = $sheet->id->{'$t'};
       // echo "success<hr>";
@@ -62,24 +61,29 @@ function getJSONfromGSS($sheetName, $request_data_arr, $gssid) {
   $json_obj = json_decode($json_str);
 
   // オブジェクト内の必要なデータ(entry)を取り出す
-  $entry = $json_obj->feed->entry;
+  $entry_rows = $json_obj->feed->entry;
 
-  $gsx_arr = [];
+  // 欲しい key を google sheets API で帰ってくる形式に整形 original-key => gsx-key の連想配列へ
+  $request_data_gsx_arr = [];
   foreach ($request_data_arr as $key => $none_value) {
-    // $gsx_key = 'gsx$' . $key;
-    // $gsx_arr[$gsx_key] = '';
-    $gsx_arr[$key] = 'gsx$' . $key;
+    $request_data_gsx_arr[$key] = 'gsx$' . $key;
   }
 
   // $request_data_arr (どのプロパティ(カラム)が欲しいかの配列) を元にレスポンスする情報群を生成
   $modified_rows = [];
-  foreach ($entry as $entry_row) {
+  foreach ($entry_rows as $entry_row) {
+
+    // 表示する項目 show/hide の処理
+    if (!$entry_row->{'gsx$show-flg'}->{'$t'}) continue;
+
     $modified_row = [];
-    foreach ($gsx_arr as $original_key => $gsx_key) {
+    foreach ($request_data_gsx_arr as $original_key => $gsx_key) {
       if (empty($entry_row->$gsx_key)) continue;
       $modified_row[$original_key] = $entry_row->$gsx_key->{'$t'};
     }
+
     if (empty($modified_row)) continue;
+
     array_push($modified_rows, $modified_row);
   }
 

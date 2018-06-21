@@ -77,3 +77,13 @@ export const mobileMenuContext = (state = false, action) => {
   }
   return state
 }
+
+export const newsData = (state = { status: "pending", data: null }, action) => {
+  if (action.type === "SET_NEWS_DATA") {
+    return ({
+      status: action.status,
+      data: action.data,
+    })
+  }
+  return state
+}

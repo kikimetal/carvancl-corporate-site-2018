@@ -63,15 +63,15 @@ export const setWpData = data => ({
 //     fetch(url)
 //       .then((response) => {
 //         if(!response.ok) {
-//           throw Error(response.statusText);
+//           throw Error(response.statusText)
 //         }
-//         dispatch(loadComments(false));
+//         dispatch(loadComments(false))
 //
-//         return response;
+//         return response
 //       })
 //       .then((response) => response.json())
 //       .then((comments) => dispatch(fetchCommentsSuccess(comments)))
-//       .catch(() => dispatch(getCommentsError(true)));
+//       .catch(() => dispatch(getCommentsError(true)))
 //   }
 // }
 
@@ -97,7 +97,8 @@ export const pageMoveToPathname = (nextPath) => {
       type: "PAGE_MOVING",
     })
 
-    setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 1800)
+    // setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 1800)
+    setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 2200)
 
     const nextRoute = checkRoute(nextPath)
     dispatch({
@@ -114,5 +115,40 @@ export const toggleMobileMenu = (context) => {
       type: "SET_MOBILE_MENU_CONTEXT",
       context: !getState().mobileMenuContext,
     })
+  }
+}
+
+
+// get news data from google sheets
+export const getNewsData = () => {
+  return (dispatch, getState) => {
+    // すでにセットされてたら終了
+    if (getState().newsData.status !== "pending") return
+    console.log("access api...")
+
+    const apiURL = window.__ASSETS__ + "/gss-api.php?sheetName=news&title&img-src&color&img-alt-text"
+    fetch(apiURL)
+      .then(res => {
+        if(!res.ok) {
+          throw Error(res.statusText)
+        }
+        return res
+      })
+      .then(res => res.json())
+      .then(data => {
+        dispatch({
+          type: "SET_NEWS_DATA",
+          data,
+          status: "fulfilled",
+        })
+      })
+      .catch(error => {
+        console.error(error)
+        dispatch({
+          type: "SET_NEWS_DATA",
+          data: null,
+          status: "rejected",
+        })
+      })
   }
 }

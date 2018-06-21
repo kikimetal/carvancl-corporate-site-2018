@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Link, NavLink, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 // containers
 import ConnectedLink from "./ConnectedLink"
+import News from "./News"
 
 // components
 import Bg from "../components/Bg"
@@ -15,38 +16,17 @@ import DelayLink from "../components/DelayLink"
 class Page00 extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      wpData: null,
-    }
-  }
-
-  componentWillMount(){
-    if (this.props.wpData) return
-
-    const url = "https://www.carvancl.co.jp/media/wp-json/wp/v2/pages/8"
-    fetch(url)
-      .then(res => res.json())
-      .then(json => {
-        this.props.setWpData(json.content.rendered)
-      })
-      .catch(error => console.error(error))
   }
 
   render(){
-    // const props = this.props
-    // console.log(this.state.wpData)
-
     return(
       <div className="Page00 page">
 
         <h1 className="page-title">Page00: HOME</h1>
 
-        <h2>WPのデータ: ここから</h2>
-        <div
-          style={{margin: "10px", padding: "10px", border: "1px dashed"}}
-          dangerouslySetInnerHTML={{__html: this.props.wpData}}
-          ></div>
-        <h2>WPのデータ: ここまで</h2>
+        <hr />
+        <News />
+        <hr />
 
         <section>
           <h1>CVL の価値観 Value</h1>
@@ -79,17 +59,10 @@ class Page00 extends React.Component{
   }
 }
 
-// const Page00 = props => ()
-
-// export default Page00
 const mapStateToProps = state => ({
-  // windowSize: state.windowSize,
-  // router: state.router,
   wpData: state.wpData,
 })
-// export default connect(mapStateToProps)(Page00)
 
-// modules
 import * as action from "../modules/action"
 const mapDispatchToProps = dispatch => ({
   setWpData: (data) => dispatch(action.setWpData(data)),
