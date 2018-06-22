@@ -126,7 +126,7 @@ export const getNewsData = () => {
     if (getState().newsData.status !== "pending") return
     console.log("access api...")
 
-    const apiURL = window.__ASSETS__ + "/gss-api.php?sheetName=news&title&img-src&color&img-alt-text"
+    const apiURL = window.__ASSETS__ + "/gss-api.php?sheetName=news&title&description&img-src&img-alt"
     fetch(apiURL)
       .then(res => {
         if(!res.ok) {

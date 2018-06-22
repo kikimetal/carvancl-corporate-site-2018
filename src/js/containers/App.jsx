@@ -82,11 +82,11 @@ class App extends React.Component{
       <div className="App">
 
         {/* 一度遷移シーンの画像をキャッシュしておくと、表示に遅延が発生しない */}
-        <img style={{display: "none"}} src={`${window.__ASSETS__}/img/king-kitan.jpg`} />
+        <img style={{display: "none"}} src={`${window.__ASSETS__}/img/bg.jpg`} />
 
         <div className={`page-transition-image ${this.props.isPageMoving ? "on" : "off"}`}>
           <div className="bg" style={{
-              backgroundImage: `url(${window.__ASSETS__}/img/king-kitan.jpg)`,
+              backgroundImage: `url(${window.__ASSETS__}/img/bg.jpg)`,
             }}></div>
           <div className="over-text">{this.props.shortMessage}</div>
         </div>

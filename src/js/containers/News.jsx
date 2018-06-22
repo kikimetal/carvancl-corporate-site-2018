@@ -11,49 +11,64 @@ class News extends React.Component{
   }
   render(){
     const { status, data } = this.props.newsData
-    let content
-    if(status === "fulfilled"){
+
+    let content = (<div className="news-content"></div>)
+    if (status === "fulfilled") {
       content = (
-        <div>
+        <div className="news-content">
           {data.map((rowData, i) => {
             return (
-              <section key={"news-data-row-" + i}>
-                <h2>{rowData.title}</h2>
+              <section className="news-content-row" key={"news-data-row-" + i}>
                 <img
-                  style={{maxWidth: '90%'}}
+                  className="img"
                   src={rowData["img-src"]}
+                  alt={rowData["img-alt"]}
                   />
-                <p>{rowData["img-alt-text"]}</p>
+                <h2 className="title">{rowData.title}</h2>
+                <p className="description">{rowData["description"]}</p>
               </section>
             )
           })}
         </div>
       )
-    }else{
-      content = (
-        <h2>
-          {status === "pending"
-            ? "ロード中..."
-            : "サーバーエラーのため読み込みを中断します"}
-          </h2>
-        )
-      }
-      return (
-        <div className="News">
-          <h1>News</h1>
-          {content}
-        </div>
-      )
     }
+
+    const notificationPending = (
+      <h2 className="notification pending skeleton-screen-load">
+        <span>
+          <q>最新のニュース</q>を読み込んでいます。
+        </span>
+      </h2>
+    )
+    const notificationError = (
+      <h2 className="notification error">
+        <span>
+          サーバーへの通信に失敗したため<q>最新のニュース</q>が読み込めませんでした。
+        </span>
+      </h2>
+    )
+
+    return (
+      <div className="News">
+        {
+          this.props.newsData.status === "fulfilled"
+            ? content
+            : this.props.newsData.status === "pending"
+              ? notificationPending
+              : notificationError
+        }
+      </div>
+    )
   }
+}
 
-  const mapStateToProps = state => ({
-    newsData: state.newsData,
-  })
+const mapStateToProps = state => ({
+  newsData: state.newsData,
+})
 
-  import * as action from "../modules/action"
-  const mapDispatchToProps = dispatch => ({
-    getNewsData: () => dispatch(action.getNewsData()),
-  })
+import * as action from "../modules/action"
+const mapDispatchToProps = dispatch => ({
+  getNewsData: () => dispatch(action.getNewsData()),
+})
 
-  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(News))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(News))

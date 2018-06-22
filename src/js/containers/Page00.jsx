@@ -24,9 +24,7 @@ class Page00 extends React.Component{
 
         <h1 className="page-title">Page00: HOME</h1>
 
-        <hr />
         <News />
-        <hr />
 
         <section>
           <h1>CVL の価値観 Value</h1>

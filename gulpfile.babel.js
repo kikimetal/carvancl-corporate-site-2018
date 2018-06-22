@@ -128,7 +128,8 @@ gulp.task("browser-sync", ["php"], () => {
     proxy: `localhost:${port}`,
     port: port,
     files: ["public/**/*"],
-    open: "external",
+    // open: "external",
+    open: false,
   })
 })
 
