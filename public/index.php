@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_URI"] === $root_uri) {
 // print_r($routes_array);
 
 // ルーティング。ステータスコードも返す。
-$this_route = "null";
+$this_route = null;
 // if (isset($routes_array[$request_uri])) {
 foreach ($routes_array as $page_id => $page_data) {
   if (isset($page_data["uri"]) && $page_data["uri"] === $request_uri) {
@@ -50,13 +50,16 @@ foreach ($routes_array as $page_id => $page_data) {
   }
 }
 
-// echo "route: " . $this_route . "<br>"; // TODO: remove this
+// echo "this_route: " . "<br>"; // TODO: remove this
+// print_r($this_route);
+
 // ルート確立 or 失敗
-// if ($this_route) {
-//   http_response_code(200);
-// } else {
-//   http_response_code(404);
-// }
+if ($this_route !== null) {
+  http_response_code(200);
+} else {
+  http_response_code(404);
+  $this_route = $routes_array["page404"];
+}
 
 ?>
 
