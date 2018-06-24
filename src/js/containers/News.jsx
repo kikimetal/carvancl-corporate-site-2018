@@ -19,6 +19,7 @@ class News extends React.Component{
           {data.map((rowData, i) => {
             return (
               <section className="news-content-row" key={"news-data-row-" + i}>
+                <div className="date">{rowData.date}</div>
                 <img
                   className="img"
                   src={rowData["img-src"]}
@@ -26,6 +27,10 @@ class News extends React.Component{
                   />
                 <h2 className="title">{rowData.title}</h2>
                 <p className="description">{rowData["description"]}</p>
+                {rowData["link-flg"] &&
+                  <a className="link-btn" href={rowData["link-href"]}>
+                    <i className="fas fa-chevron-right"></i>{rowData["link-text"]}
+                  </a>}
               </section>
             )
           })}
