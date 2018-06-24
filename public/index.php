@@ -110,6 +110,10 @@ if ($this_route !== null) {
   </style -->
   <!-- TODO remove env production-->
 
+  <!-- cvl hand painter -->
+  <script acync defer src="<?= $assets_url ?>/vender/jquery-2.2.4.min.js"></script>
+  <script acync defer src="<?= $assets_url ?>/vender/jquery.lazylinepainter-1.7.0.min.js"></script>
+
 </head>
 <body>
 

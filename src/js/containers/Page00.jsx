@@ -7,6 +7,7 @@ import ConnectedLink from "./ConnectedLink"
 import News from "./News"
 
 // components
+import CvlHand from "../components/CvlHand"
 import Bg from "../components/Bg"
 import KikiStar from "../components/KikiStar"
 import Btn from "../components/Btn"
@@ -21,6 +22,8 @@ class Page00 extends React.Component{
   render(){
     return(
       <div className="Page00 page">
+
+        <CvlHand />
 
         <h1 className="page-title">Page00: HOME</h1>
 
