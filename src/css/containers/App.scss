@@ -48,13 +48,13 @@
       // background-blend-mode: multiply;
 
       transform-origin: center;
-      transform: scale(1.1);
+      transform: scale(1);
       transition: all 0.3s ease;
     }
 
     &.on .bg{
       transition: all 3s linear;
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
     &.off .bg{
       background-image: linear-gradient(var(--cvl-grey), var(--cvl-grey)) !important;
@@ -74,7 +74,7 @@
       // color: lightgrey;
       // background: var(--cvl-red);
       color: #333;
-      background: #eee;
+      background: #fafafa;
 
       // page-in
       transform-origin: 50% 50vh; // fade-in-scale の画面中央設定

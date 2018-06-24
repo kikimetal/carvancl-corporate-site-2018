@@ -38,23 +38,25 @@ if ($_SERVER["REQUEST_URI"] === $root_uri) {
 }
 
 // echo "request_uri: " . $request_uri . "<br>"; // TODO: remove this
+// print_r($routes_array);
 
 // ルーティング。ステータスコードも返す。
-$route = null;
+$this_route = "null";
 // if (isset($routes_array[$request_uri])) {
-foreach ($routes_array as $page => $value) {
-  if (isset($page["uri"]) && $page["uri"] === $request_uri) {
-    $route = $page;
+foreach ($routes_array as $page_id => $page_data) {
+  if (isset($page_data["uri"]) && $page_data["uri"] === $request_uri) {
+    $this_route = $page_data;
     break;
   }
 }
 
+// echo "route: " . $this_route . "<br>"; // TODO: remove this
 // ルート確立 or 失敗
-if ($route) {
-  http_response_code(200);
-} else {
-  http_response_code(404);
-}
+// if ($this_route) {
+//   http_response_code(200);
+// } else {
+//   http_response_code(404);
+// }
 
 ?>
 
@@ -72,9 +74,9 @@ if ($route) {
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- react-helmet context meta -->
-  <title><?= $route["title"] ?></title>
-  <meta name="description" content="<?= $route["description"] ?>" data-react-helmet="true" />
-  <link rel="canonical" href="<?= $route["canonical"] ?>" data-react-helmet="true" />
+  <title><?= $this_route["title"] ?></title>
+  <meta name="description" content="<?= $this_route["description"] ?>" data-react-helmet="true" />
+  <link rel="canonical" href="<?= $this_route["canonical"] ?>" data-react-helmet="true" />
 
   <!-- TODO remove env production-->
     <style media="screen">

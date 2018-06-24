@@ -24,7 +24,7 @@ html{
   --cvl-red: rgb(171, 28, 28);
   --cvl-grey: #eee;
   --my-ease-out: cubic-bezier(0, 0.92, 0.44, 1);
-  
+
   font-size: 14px;
   @media screen and (min-width: 1900){ // xl
     font-size: 16px;
@@ -33,7 +33,7 @@ html{
   body{
     width: 100vw;
     overflow-x: hidden;
-    background: var(--cvl-red);
+    // background: var(--cvl-red);
 
     // letter-spacing: 1px;
     color: #333;
