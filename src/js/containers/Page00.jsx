@@ -4,14 +4,13 @@ import { connect } from "react-redux"
 // containers
 import ConnectedLink from "./ConnectedLink"
 import News from "./News"
+import Footer from "./Footer"
 
 // components
 import CvlHand from "../components/CvlHand"
-import Bg from "../components/Bg"
-import KikiStar from "../components/KikiStar"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
-import DelayLink from "../components/DelayLink"
+
 
 class Page00 extends React.Component{
   constructor(props){
@@ -44,6 +43,8 @@ class Page00 extends React.Component{
             <li>良いクリエイター（仲間）が蔑ろにされた時（報酬が適切でない、チャンスが与えられないetc...）に強く憤る。</li>
           </ul>
         </section>
+
+        <Footer />
 
       </div>
     )

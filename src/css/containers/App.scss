@@ -1,5 +1,4 @@
 .App{
-
   --Menu-width: 210px;
   --kiki-pink: rgb(149, 213, 205);
   --kiki-orange: rgb(255, 162, 75);
@@ -19,13 +18,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    // width: 100%;
     overflow: hidden;
 
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+
+    pointer-events: none;
+    user-select: none;
 
     .over-text{
       font-size: 6vmin;
@@ -113,16 +114,4 @@
       }
     } // .page
   } // .main
-
-  .main.md,
-  .main.lg,
-  .main.xl{
-    // margin-top: 60px;
-    // border-top: 2px solid crimson;
-  }
-
-
-  // ******************** md middle size layout ********************
-  // @media screen and (min-width: 768px){
-  // }
-}
+} // .App

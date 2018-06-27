@@ -7,6 +7,9 @@ import urljoin from "url-join"
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
 
+// containers
+import Footer from "./Footer"
+
 const Page01 = props => {
 
   const { status, data } = props.story
@@ -61,6 +64,7 @@ const Page01 = props => {
             ? pending
             : rejected
       }
+      <Footer />
     </div>
   )
 }

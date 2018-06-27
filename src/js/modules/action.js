@@ -83,11 +83,11 @@ export const pageMoveToPathname = (nextPath) => {
     // setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 1800)
     setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 2200)
 
-    const nextRoute = checkRoute(nextPath)
-    dispatch({
-      type: "SET_NEXT_PAGE_SHORT_MESSAGE",
-      shortMessage: nextRoute.shortMessage,
-    })
+    // const nextRoute = checkRoute(nextPath)
+    // dispatch({
+    //   type: "SET_NEXT_PAGE_SHORT_MESSAGE",
+    //   shortMessage: nextRoute.shortMessage,
+    // })
   }
 }
 

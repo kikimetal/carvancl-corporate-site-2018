@@ -13,9 +13,8 @@ import LightsSvg from "./LightsSvg"
 
 // components
 import Btn from "../components/Btn"
-// import Bg from "../components/Bg"
 import NotFound from "../components/NotFound"
-import KikiStar from "../components/KikiStar"
+// import KikiStar from "../components/KikiStar"
 
 // loader events
 window.addEventListener("load", () => {

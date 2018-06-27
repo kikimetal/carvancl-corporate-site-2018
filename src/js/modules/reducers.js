@@ -1,3 +1,7 @@
+export const assetsPath = (state = null) => state
+
+export const routes = (state = null) => state
+
 export const windowSize = (state = "sm", action) => {
   if (action.type === "SET_WINDOW_SIZE") {
     return action.size
@@ -15,34 +19,6 @@ export const windowWidth = (state = window.innerWidth, action) => {
 export const windowHeight = (state = window.innerHeight, action) => {
   if (action.type === "SET_WINDOW_HEIGHT") {
     return action.height
-  }
-  return state
-}
-
-export const isReverseWebsite = (state = false, action) => {
-  if (action.type === "REVERSE_WEBSITE") {
-    return !state
-  }
-  return state
-}
-
-export const websitesDataCondition = (state = false, action) => {
-  if (action.type === "SET_WEBSITES_DATA_CONDITION") {
-    return action.condition
-  }
-  return state
-}
-
-export const websitesData = (state = [], action) => {
-  if (action.type === "SET_DATA") {
-    return action.data
-  }
-  return state
-}
-
-export const wpData = (state = null, action) => {
-  if (action.type === "SET_WP_DATA") {
-    return action.data
   }
   return state
 }
@@ -107,6 +83,3 @@ export const service = (state = { status: "pending", data: null }, action) => {
   }
   return state
 }
-
-export const assetsPath = (state = null) => state
-export const routes = (state = null) => state

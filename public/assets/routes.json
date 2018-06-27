@@ -4,7 +4,7 @@
     "uri": "/",
     "title": "CARVANCL カーバンクル | 芸大・美大生のキャリアを広げる事業会社",
     "description": "株式会社カーバンクルの公式サイトです。",
-    "shortMessage": "クリエイティブを探求する",
+    "inbound": "トップに戻る",
     "heading": "HOME"
   },
   "page01": {
@@ -12,7 +12,7 @@
     "uri": "/story/",
     "title": "STORY | CARVANCL カーバンクル",
     "description": "meta description of story.",
-    "shortMessage": "CARVANCL: オリジン",
+    "inbound": "生い立ちを知る",
     "heading": "STORY"
   },
   "page02": {
@@ -20,22 +20,14 @@
     "uri": "/service/",
     "title": "service | 創造",
     "description": "meta description of service.",
-    "shortMessage": "成し遂げなければならない！",
+    "inbound": "サービスを知る",
     "heading": "SERVICE"
-  },
-  "page03": {
-    "canonical": "https://www.carvancl.co.jp/what/",
-    "uri": "/what/",
-    "title": "what | 足るを知らず",
-    "description": "meta description of what.",
-    "shortMessage": "unset message...",
-    "heading": "HEADING"
   },
   "page404": {
     "canonical": "https://www.carvancl.co.jp/404/",
     "title": "CARVANCL カーバンクル | 404 Page Not Found.",
     "description": "このページは存在しません。",
-    "shortMessage": "404へようこそ",
+    "inbound": "404へようこそ",
     "heading": "HEADING"
   }
 }

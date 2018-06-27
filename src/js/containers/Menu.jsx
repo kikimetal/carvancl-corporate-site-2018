@@ -8,7 +8,7 @@ import MenuTrigger from "./MenuTrigger"
 
 // components
 import Btn from "../components/Btn"
-import KikiLogoType from "../components/KikiLogoType"
+// import KikiLogoType from "../components/KikiLogoType"
 // import HeightTransitionToFull from "../components/HeightTransitionToFull"
 
 class Menu extends React.Component{
@@ -16,6 +16,9 @@ class Menu extends React.Component{
     super(props)
   }
   render(){
+
+    const { page00, page01, page02 } = this.props.routes
+
     if (this.props.windowSize === "sm") { // sm
       return (
         <div className="Menu sm">
@@ -29,9 +32,9 @@ class Menu extends React.Component{
             onClick={this.props.toggleMobileMenu}
             >
             <ul className="link-list">
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page00.uri}><Btn><i className="fas fa-bug" />HOME</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page01.uri}><Btn><i className="fab fa-accusoft" />WHY</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page02.uri}><Btn><i className="fas fa-code" />HOW</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={page00.uri}><Btn><i className="fas fa-bug" />{page00.heading}</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={page01.uri}><Btn><i className="fab fa-accusoft" />{page01.heading}</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={page02.uri}><Btn><i className="fas fa-code" />{page02.heading}</Btn></ConnectedLink></li>
             </ul>
           </div>
 
@@ -45,17 +48,17 @@ class Menu extends React.Component{
           <div className="container">
 
             <ul className="link-list">
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page00.uri}><Btn>
+              <li className="link-list-item"><ConnectedLink to={page00.uri}><Btn>
                 <i className="fas fa-bug" />
-                HOME
+                {page00.heading}
                 </Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page01.uri}><Btn>
+              <li className="link-list-item"><ConnectedLink to={page01.uri}><Btn>
                 <i className="fab fa-accusoft" />
-                WHY
+                {page01.heading}
                 </Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to={this.props.routes.page02.uri}><Btn>
+              <li className="link-list-item"><ConnectedLink to={page02.uri}><Btn>
                 <i className="fas fa-code" />
-                HOW
+                {page02.heading}
                 </Btn></ConnectedLink></li>
             </ul>
           </div>

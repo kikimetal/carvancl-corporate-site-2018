@@ -25,7 +25,6 @@ class News extends React.Component{
                   />
                 <h2 className="title">{row.title}</h2>
                 <p className="description">{row["description"]}</p>
-                <h1 className="error">{Number(row["link-flg"])}</h1>
                 {
                   Number(row["link-flg"])
                   ? <a className="link-btn" href={row["link-href"]}>
