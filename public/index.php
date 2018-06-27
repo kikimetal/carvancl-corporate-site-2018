@@ -17,8 +17,6 @@ if ($_SERVER["HTTP_HOST"] === 'www.kikimetal.com' || $_SERVER["HTTP_HOST"] === '
 // assets ディレクトリの設定
 $assets_url = $root_url . $root_uri . 'assets';
 
-// echo "assets_url: " . $assets_url . "<br>"; // TODO: remove this
-
 // ルーティング情報を引き出す
 $routesJsonUrl = "./assets/routes.json";
 $routes = file_get_contents($routesJsonUrl);
@@ -30,28 +28,19 @@ $request_uri = null;
 if ($_SERVER["REQUEST_URI"] === $root_uri) {
   $request_uri = "/";
 } else {
-  // rootディレクトリ以外へのアクセスは、末尾の "/" は除去
-  // $request_uri = rtrim($_SERVER["REQUEST_URI"], "/");
   $request_uri = $_SERVER["REQUEST_URI"];
   // REQUEST_URI には host 以降すべてが含まれるので ($root_uri (basename) の長さ - 1文字 ("/")) を削除
   $request_uri = substr($request_uri, (strlen($root_uri) - 1) );
 }
 
-// echo "request_uri: " . $request_uri . "<br>"; // TODO: remove this
-// print_r($routes_array);
-
 // ルーティング。ステータスコードも返す。
 $this_route = null;
-// if (isset($routes_array[$request_uri])) {
 foreach ($routes_array as $page_id => $page_data) {
   if (isset($page_data["uri"]) && $page_data["uri"] === $request_uri) {
     $this_route = $page_data;
     break;
   }
 }
-
-// echo "this_route: " . "<br>"; // TODO: remove this
-// print_r($this_route);
 
 // ルート確立 or 失敗
 if ($this_route !== null) {
@@ -62,13 +51,9 @@ if ($this_route !== null) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- TODO remove env production-->
-  <!-- <script src="http://localhost:8097"></script> -->
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="shortcut icon" href="<?= $assets_url ?>/img/favicon.ico">
@@ -81,67 +66,33 @@ if ($this_route !== null) {
   <meta name="description" content="<?= $this_route["description"] ?>" data-react-helmet="true" />
   <link rel="canonical" href="<?= $this_route["canonical"] ?>" data-react-helmet="true" />
 
-  <!-- TODO remove env production-->
-    <style media="screen">
-      .develop-now{
-        display: block;
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        width: 120px;
-        height: 30px;
-        background: crimson;
-        color: white;
-        font-size: 11px;
-        font-family: Arial;
-        text-align: center;
-        line-height: 30px;
-        border-top-left-radius: 5px;
-        z-index: 999999999999999;
-      }
-    </style>
-    <!-- style>
-    /* @import url('https://fonts.googleapis.com/css?family=Emblema+One|Katibeh|Vesper+Libre:900'); */
-    body{
-      /* font-family: 'Katibeh', sans-serif; */
-      /* font-family: 'Vesper Libre', serif; */
-      /* font-family: 'Emblema One', serif, "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif; */
-    }
-  </style -->
-  <!-- TODO remove env production-->
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="<?= $assets_url ?>/css/bundle.css">
+
+</head>
+<body>
+
+  <div id="app"></div>
+  <!-- <div id="loader">
+    <div class="loader-bg-img"></div>
+    <span class="loader-text">LOADING</span>
+    <span class="loader-circle"></span>
+  </div> -->
+
+  <script>
+    window.__BASENAME__ = "<?= $root_uri ?>";
+    window.__ROUTES__ = <?= $routes ?>;
+    window.__ASSETS__ = "<?= $assets_url ?>";
+  </script>
 
   <!-- cvl hand painter -->
   <script acync defer src="<?= $assets_url ?>/vender/jquery-2.2.4.min.js"></script>
   <script acync defer src="<?= $assets_url ?>/vender/jquery.lazylinepainter-1.7.0.min.js"></script>
 
-</head>
-<body>
-
-  <!-- TODO remove env production-->
-    <!-- <div class="develop-now">現在改装中です</div> -->
-  <!-- TODO remove env production-->
-
-  <div id="app"></div>
-  <div id="loader">
-    <div class="loader-bg-img"></div>
-    <span class="loader-text">LOADING</span>
-    <span class="loader-circle"></span>
-  </div>
-
-  <!-- stylesheet -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Codystar:300,400|Fascinate|Fredericka+the+Great|Libre+Barcode+128+Text|Londrina+Outline" rel="stylesheet"> -->
-  <link rel="stylesheet" href="<?= $assets_url ?>/css/bundle.css">
-
-  <script>
-    window.__ROUTES__ = <?= $routes ?>;
-    window.__BASENAME__ = "<?= $root_uri ?>";
-    window.__ASSETS__ = "<?= $assets_url ?>";
-  </script>
-
-  <!-- <script defer src="<?= $assets_url ?>/vender/fontawesome-all.min.js"></script> -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
-  <script defer src="<?= $assets_url ?>/js/bundle.js"></script>
-
+  <!-- app component -->
+  <script acync defer src="<?= $assets_url ?>/js/bundle.js"></script>
+  
+  <!-- fontawesome -->
+  <script acync defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </body>
 </html>

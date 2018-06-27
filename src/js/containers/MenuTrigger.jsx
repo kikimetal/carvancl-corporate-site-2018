@@ -13,17 +13,15 @@ class MenuTrigger extends React.Component{
     return (
       <div className={`MenuTrigger ${this.props.mobileMenuContext || this.props.isPageMoving ? "collapse" : ""}`}>
         <div className="left-item" onClick={this.props.toggleMobileMenu}>
-          {/*<img className="icon-img" src={`${window.__ASSETS__}/img/home-icon.svg`} />*/}
           <i className="fas fa-bars"></i>
           <span>MENU</span>
-          {/*<span className="text">MENU</span>*/}
         </div>
         {
           this.props.location.pathname === "/"
-            ? <ConnectedLink className="right-item" to="/why/"><i className="fas fa-chevron-right"></i>なぜやるか？</ConnectedLink>
-            : this.props.location.pathname === "/why/"
-              ? <ConnectedLink className="right-item" to="/how/"><i className="fas fa-chevron-right"></i>どんなサービス？</ConnectedLink>
-              : <ConnectedLink className="right-item" to="/"><i className="fas fa-chevron-right"></i>HOMEへ</ConnectedLink>
+            ? <ConnectedLink className="right-item" to={this.props.routes.page01.uri}><i className="fas fa-chevron-right"></i>なぜやるか？</ConnectedLink>
+            : this.props.location.pathname === this.props.routes.page01.uri
+              ? <ConnectedLink className="right-item" to={this.props.routes.page02.uri}><i className="fas fa-chevron-right"></i>どんなサービス？</ConnectedLink>
+              : <ConnectedLink className="right-item" to={this.props.routes.page00.uri}><i className="fas fa-chevron-right"></i>HOMEへ</ConnectedLink>
         }
       </div>
     )
@@ -33,6 +31,7 @@ class MenuTrigger extends React.Component{
 const mapStateToProps = state => ({
   isPageMoving: state.isPageMoving,
   mobileMenuContext: state.mobileMenuContext,
+  routes: state.routes,
 })
 
 import * as action from "../modules/action"

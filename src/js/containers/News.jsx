@@ -1,36 +1,38 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
 
 class News extends React.Component{
   constructor(props){
     super(props)
   }
-  componentDidMount(){
-    this.props.getNewsData()
-  }
   render(){
-    const { status, data } = this.props.newsData
 
-    let content = (<div className="news-content"></div>)
+    const { status, data } = this.props.news
+
+    let fulfilled
+
     if (status === "fulfilled") {
-      content = (
+      fulfilled = (
         <div className="news-content">
-          {data.map((rowData, i) => {
+          {data.map((row, i) => {
             return (
               <section className="news-content-row" key={"news-data-row-" + i}>
-                <div className="date">{rowData.date}</div>
+                <div className="date">{row.date}</div>
                 <img
                   className="img"
-                  src={rowData["img-src"]}
-                  alt={rowData["img-alt"]}
+                  src={row["img-src"]}
+                  alt={row["img-alt"]}
                   />
-                <h2 className="title">{rowData.title}</h2>
-                <p className="description">{rowData["description"]}</p>
-                {rowData["link-flg"] &&
-                  <a className="link-btn" href={rowData["link-href"]}>
-                    <i className="fas fa-chevron-right"></i>{rowData["link-text"]}
-                  </a>}
+                <h2 className="title">{row.title}</h2>
+                <p className="description">{row["description"]}</p>
+                <h1 className="error">{Number(row["link-flg"])}</h1>
+                {
+                  Number(row["link-flg"])
+                  ? <a className="link-btn" href={row["link-href"]}>
+                      <i className="fas fa-chevron-right"></i>{row["link-text"]}
+                    </a>
+                  : null
+                }
               </section>
             )
           })}
@@ -38,15 +40,15 @@ class News extends React.Component{
       )
     }
 
-    const notificationPending = (
+    const pending = (
       <h2 className="notification pending skeleton-screen-load">
         <span>
           <q>最新のニュース</q>を読み込んでいます。
         </span>
       </h2>
     )
-    const notificationError = (
-      <h2 className="notification error">
+    const rejected = (
+      <h2 className="notification rejected error">
         <span>
           サーバーへの通信に失敗したため<q>最新のニュース</q>が読み込めませんでした。
         </span>
@@ -56,11 +58,11 @@ class News extends React.Component{
     return (
       <div className="News">
         {
-          this.props.newsData.status === "fulfilled"
-            ? content
-            : this.props.newsData.status === "pending"
-              ? notificationPending
-              : notificationError
+          status === "fulfilled"
+            ? fulfilled
+            : status === "pending"
+              ? pending
+              : rejected
         }
       </div>
     )
@@ -68,12 +70,7 @@ class News extends React.Component{
 }
 
 const mapStateToProps = state => ({
-  newsData: state.newsData,
+  news: state.news,
 })
 
-import * as action from "../modules/action"
-const mapDispatchToProps = dispatch => ({
-  getNewsData: () => dispatch(action.getNewsData()),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(News))
+export default connect(mapStateToProps)(News)

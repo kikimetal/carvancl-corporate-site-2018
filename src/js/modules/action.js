@@ -1,3 +1,5 @@
+import urljoin from "url-join"
+
 export const setWindowSize = () => {
   return (dispatch) => {
 
@@ -56,25 +58,6 @@ export const setWpData = data => ({
   data,
 })
 
-// fetch ---
-// TODO
-// export const fetchJSON = (url, ...actions) => {
-//   return (dispatch) => {
-//     fetch(url)
-//       .then((response) => {
-//         if(!response.ok) {
-//           throw Error(response.statusText)
-//         }
-//         dispatch(loadComments(false))
-//
-//         return response
-//       })
-//       .then((response) => response.json())
-//       .then((comments) => dispatch(fetchCommentsSuccess(comments)))
-//       .catch(() => dispatch(getCommentsError(true)))
-//   }
-// }
-
 const ROUTES = window.__ROUTES__
 // 引数の path が 存在するか確認。route情報を返す。
 const checkRoute = path => {
@@ -118,37 +101,65 @@ export const toggleMobileMenu = (context) => {
   }
 }
 
+// JSON を取得した後に 指定のアクションタイプで dispatch する
+const fetchJsonAndDispatch = (fetchUrl, actionTypeString, dispatchFunction) => {
+  fetch(fetchUrl)
+    .then(res => {
+      if(!res.ok) {
+        throw Error(res.statusText)
+      }
+      return res
+    })
+    .then(res => res.json())
+    .then(data => {
+      dispatchFunction({
+        type: actionTypeString,
+        data,
+        status: "fulfilled",
+      })
+    })
+    .catch(error => {
+      console.error("ERROR in redux action:", error)
+      dispatchFunction({
+        type: actionTypeString,
+        data: null,
+        status: "rejected",
+      })
+    })
+}
 
-// get news data from google sheets
-export const getNewsData = () => {
+// get news data
+export const getNews = () => {
   return (dispatch, getState) => {
+    const { news, assetsPath } = getState()
     // すでにセットされてたら終了
-    if (getState().newsData.status !== "pending") return
-    // console.log("access api...")
+    if (news.status !== "pending") return
 
-    const apiURL = window.__ASSETS__ + "/gss-api.php?sheetName=news&date&title&description&img-src&img-alt&link-flg&link-text&link-href"
-    fetch(apiURL)
-      .then(res => {
-        if(!res.ok) {
-          throw Error(res.statusText)
-        }
-        return res
-      })
-      .then(res => res.json())
-      .then(data => {
-        dispatch({
-          type: "SET_NEWS_DATA",
-          data,
-          status: "fulfilled",
-        })
-      })
-      .catch(error => {
-        console.error(error)
-        dispatch({
-          type: "SET_NEWS_DATA",
-          data: null,
-          status: "rejected",
-        })
-      })
+    const url = urljoin(assetsPath, "gss-api.php?sheetName=news&date&title&description&img-src&img-alt&link-flg&link-text&link-href")
+    fetchJsonAndDispatch(url, "SET_NEWS", dispatch)
+  }
+}
+
+// get story data
+export const getStory = () => {
+  return (dispatch, getState) => {
+    const { story, assetsPath } = getState()
+    // すでにセットされてたら終了
+    if (story.status !== "pending") return
+
+    const url = urljoin(assetsPath, "gss-api.php?sheetName=story&element&value")
+    fetchJsonAndDispatch(url, "SET_STORY", dispatch)
+  }
+}
+
+// get service data
+export const getService = () => {
+  return (dispatch, getState) => {
+    const { service, assetsPath } = getState()
+    // すでにセットされてたら終了
+    if (service.status !== "pending") return
+
+    const url = urljoin(assetsPath, "gss-api.php?sheetName=service&element&value")
+    fetchJsonAndDispatch(url, "SET_SERVICE", dispatch)
   }
 }

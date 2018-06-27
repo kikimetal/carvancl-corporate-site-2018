@@ -29,9 +29,9 @@ class Menu extends React.Component{
             onClick={this.props.toggleMobileMenu}
             >
             <ul className="link-list">
-              <li className="link-list-item"><ConnectedLink to="/"><Btn><i className="fas fa-bug" />HOME</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/why/"><Btn><i className="fab fa-accusoft" />WHY</Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/how/"><Btn><i className="fas fa-code" />HOW</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page00.uri}><Btn><i className="fas fa-bug" />HOME</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page01.uri}><Btn><i className="fab fa-accusoft" />WHY</Btn></ConnectedLink></li>
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page02.uri}><Btn><i className="fas fa-code" />HOW</Btn></ConnectedLink></li>
             </ul>
           </div>
 
@@ -45,16 +45,16 @@ class Menu extends React.Component{
           <div className="container">
 
             <ul className="link-list">
-              <li className="link-list-item"><ConnectedLink to="/"><Btn>
-                {/*<i className="fas fa-bug" />*/}
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page00.uri}><Btn>
+                <i className="fas fa-bug" />
                 HOME
                 </Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/why/"><Btn>
-                {/*<i className="fab fa-accusoft" />*/}
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page01.uri}><Btn>
+                <i className="fab fa-accusoft" />
                 WHY
                 </Btn></ConnectedLink></li>
-              <li className="link-list-item"><ConnectedLink to="/how/"><Btn>
-                {/*<i className="fas fa-code" />*/}
+              <li className="link-list-item"><ConnectedLink to={this.props.routes.page02.uri}><Btn>
+                <i className="fas fa-code" />
                 HOW
                 </Btn></ConnectedLink></li>
             </ul>
@@ -68,6 +68,7 @@ class Menu extends React.Component{
 const mapStateToProps = state => ({
   windowSize: state.windowSize,
   mobileMenuContext: state.mobileMenuContext,
+  routes: state.routes,
 })
 
 import * as action from "../modules/action"

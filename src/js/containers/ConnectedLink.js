@@ -12,14 +12,13 @@ class ConnectedLink extends React.Component{
   }
 
   render(){
-
     const { history, replace, to, duration } = this.props
 
     // 現在のページかどうか NavLink みたく current-page に "active" class 付けてあげる
     let { className } = this.props
     className += history.location.pathname === to ? " active" : ""
 
-    // 継承する props を設定する
+    // 継承する this.props を設定する
     // warnig 原因の staticContext と、 redux の action を切り取り
     let {staticContext, pageMoveToPathname, ...inheritProps} = this.props
     // className 合成
@@ -54,11 +53,10 @@ class ConnectedLink extends React.Component{
 
         // set redux
         this.props.pageMoveToPathname(to)
-        console.log("nextPath", to)
 
         // set CSS-class to current page
-        const thisPage = document.querySelector(".page")
-        thisPage.classList.add("leave")
+        const currentPage = document.querySelector(".page")
+        currentPage.classList.add("leave")
       }
 
     }
@@ -75,9 +73,10 @@ ConnectedLink.defaultProps = {
 }
 
 const mapStateToProps = state => ({})
+
 import * as action from "../modules/action"
 const mapStateToDispatch = dispatch => ({
   pageMoveToPathname: (nextPath) => dispatch(action.pageMoveToPathname(nextPath)),
 })
+
 export default withRouter(connect(mapStateToProps, mapStateToDispatch)(ConnectedLink))
-// export default withRouter(ConnectedLink)

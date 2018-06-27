@@ -1,46 +1,74 @@
 import React from "react"
 import { connect } from "react-redux"
 import { NavLink } from "react-router-dom"
+import urljoin from "url-join"
 
 // components
 import Btn from "../components/Btn"
 import LazyLoadImg from "../components/LazyLoadImg"
 
-const Page01 = (props) => (
-  <div className="Page01 page">
+const Page01 = props => {
 
-    <h1 className="page-title">Page01: WHY</h1>
+  const { status, data } = props.story
 
-    <LazyLoadImg
-      imgsrc={`${window.__ASSETS__}/img/twin-ribon-girl.png`}
-      height="50vh"
-      />
-    <LazyLoadImg
-      imgsrc={`${window.__ASSETS__}/img/wa-maid.jpg`}
-      height="50vh"
-      />
-    <LazyLoadImg
-      imgsrc={`${window.__ASSETS__}/img/nurse-rip.jpg`}
-      height="50vh"
-      />
+  let fulfilled
+  if (status === "fulfilled") {
+    fulfilled = (
+      <div className="story-content">
+        {data.map((row, i) => {
+          if (row.element === "h1") {
+            return (<h1 key={"story-data-row-" + i}>{row.value}</h1>)
+          }
+          else if (row.element === "h2") {
+            return (<h2 key={"story-data-row-" + i}>{row.value}</h2>)
+          }
+          else if (row.element === "p") {
+            return (<p key={"story-data-row-" + i}>{row.value}</p>)
+          }
+          else if (row.element === "img") {
+            return (
+              <LazyLoadImg
+                key={"story-data-row-" + i}
+                imgsrc={row.value}
+                height="50vh"
+                />
+            )
+          }
+        })}
+      </div>
+    )
+  }
 
+  const pending = (
+    <div className="story-content">
+      <h2>最新の情報を読み込んでいます。</h2>
+    </div>
+  )
 
-    <section>
-      <h1>TEST</h1>
-      {/*<h2>ww: {props.ww}</h2>
-    <h2>wh: {props.wh}</h2>*/}
-      <h2>window.orientation: {window.orientation}</h2>
-    </section>
+  const rejected = (
+    <div className="story-content">
+      <h2 className="error">情報の読み込みに失敗しました。</h2>
+    </div>
+  )
 
-    <h1 className="page-title">Page01</h1>
-
-  </div>
-)
+  return (
+    <div className="Page01 page">
+      <h1 className="page-title">{props.routes.page01.heading}</h1>
+      {
+        status === "fulfilled"
+          ? fulfilled
+          : status === "pending"
+            ? pending
+            : rejected
+      }
+    </div>
+  )
+}
 
 const mapStateToProps = state => ({
-  // ww: state.windowWidth,
-  // wh: state.windowHeight,
-  // redux: state,
+  routes: state.routes,
+  assetsPath: state.assetsPath,
+  story: state.story,
 })
 
 export default connect(mapStateToProps)(Page01)

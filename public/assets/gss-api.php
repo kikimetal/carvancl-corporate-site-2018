@@ -74,7 +74,7 @@ function getJSONfromGSS($sheetName, $request_data_arr, $gssid) {
   foreach ($entry_rows as $entry_row) {
 
     // 表示する項目 show/hide の処理
-    if (!$entry_row->{'gsx$show-flg'}->{'$t'}) continue;
+    if (!$entry_row->{'gsx$enable'}->{'$t'}) continue;
 
     $modified_row = [];
     foreach ($request_data_gsx_arr as $original_key => $gsx_key) {

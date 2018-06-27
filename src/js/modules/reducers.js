@@ -78,8 +78,8 @@ export const mobileMenuContext = (state = false, action) => {
   return state
 }
 
-export const newsData = (state = { status: "pending", data: null }, action) => {
-  if (action.type === "SET_NEWS_DATA") {
+export const news = (state = { status: "pending", data: null }, action) => {
+  if (action.type === "SET_NEWS") {
     return ({
       status: action.status,
       data: action.data,
@@ -87,3 +87,26 @@ export const newsData = (state = { status: "pending", data: null }, action) => {
   }
   return state
 }
+
+export const story = (state = { status: "pending", data: null }, action) => {
+  if (action.type === "SET_STORY") {
+    return ({
+      status: action.status,
+      data: action.data,
+    })
+  }
+  return state
+}
+
+export const service = (state = { status: "pending", data: null }, action) => {
+  if (action.type === "SET_SERVICE") {
+    return ({
+      status: action.status,
+      data: action.data,
+    })
+  }
+  return state
+}
+
+export const assetsPath = (state = null) => state
+export const routes = (state = null) => state

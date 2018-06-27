@@ -23,7 +23,11 @@ const middlewares = [
   // MoveToMiddleware,
 ]
 
-const initialState = undefined
+// const initialState = undefined
+const initialState = {
+  assetsPath: window.__ASSETS__,
+  routes: window.__ROUTES__,
+}
 
 const store = createStore(
   combineReducers({
@@ -35,16 +39,12 @@ const store = createStore(
 )
 
 
-import { withRouter } from 'react-router-dom'
-const AppWithRouter = withRouter(App)
-
-
 export default class AppContainer extends React.Component{
   render(){
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <AppWithRouter />
+          <App />
         </ConnectedRouter>
       </Provider>
     )

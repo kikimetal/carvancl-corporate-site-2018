@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
 
 // containers
 import ConnectedLink from "./ConnectedLink"
@@ -25,7 +24,7 @@ class Page00 extends React.Component{
 
         <CvlHand />
 
-        <h1 className="page-title">Page00: HOME</h1>
+        <h1 className="page-title">{this.props.routes.page00.heading}</h1>
 
         <News />
 
@@ -46,26 +45,13 @@ class Page00 extends React.Component{
           </ul>
         </section>
 
-        <section>
-          <h2>ConnectedLink</h2>
-          <ConnectedLink to="/why/"><Btn>WHY</Btn></ConnectedLink>
-          <ConnectedLink to="/how/"><Btn>HOW</Btn></ConnectedLink>
-          <ConnectedLink to="/what/"><Btn>WHAT</Btn></ConnectedLink>
-        </section>
-
-        <h1 className="page-title">Page00</h1>
-
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  wpData: state.wpData,
+  routes: state.routes,
 })
 
-import * as action from "../modules/action"
-const mapDispatchToProps = dispatch => ({
-  setWpData: (data) => dispatch(action.setWpData(data)),
-})
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page00))
+export default connect(mapStateToProps)(Page00)

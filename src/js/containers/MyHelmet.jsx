@@ -10,7 +10,7 @@ import { getObjectFromJSON } from "../functions/getJSON"
 // const ROUTES = window.__ROUTES__
 // // 存在すれば path を、しなければ ルートの情報 を返す。
 // // 引数の path が 存在するか確認。
-// const checkRoute = path => {
+// const getCurrentRouteData = path => {
 //   const route = Object.keys(ROUTES).find(route => route === path) || false
 //   return route ? ROUTES[route] : ROUTES["/"]
 // }
@@ -19,27 +19,23 @@ import { getObjectFromJSON } from "../functions/getJSON"
 // グローバルオブジェクトにセットされてるルーティング情報を取得
 const ROUTES = window.__ROUTES__
 // 引数の path が 存在するか確認。成功でルートのmeta情報を返す。
-const checkRoute = path => {
+const getCurrentRouteData = path => {
   const keyArr = Object.keys(ROUTES) // key の配列を生成 // ["page00", "page01", ...]
   const matchRoute = keyArr.find(key => ROUTES[key].uri === path) || false
   return matchRoute ? ROUTES[matchRoute] : ROUTES["page00"]
 }
 
-const MyHelmet = ({ currentPath, windowSize }) => {
+const MyHelmet = (props) => {
 
-  const thisRoute = checkRoute(currentPath)
-  console.log("MyHelmet thisRoute uri: ", thisRoute.uri)
-  console.log("MyHelmet thisRoute message: ", thisRoute.shortMessage)
+  const currentRoute = getCurrentRouteData(props.currentPath)
+
   return (
     <div className="MyHelmet">
-
-      {/*{windowSize === "sm" && <ScrollToTopOnMount />}*/}
       <ScrollToTopOnMount />
-
       <Helmet>
-        <title>{thisRoute.title}</title>
-        <meta name="description" content={thisRoute.description} />
-        <link rel="canonical" href={thisRoute.canonical} />
+        <title>{currentRoute.title}</title>
+        <meta name="description" content={currentRoute.description} />
+        <link rel="canonical" href={currentRoute.canonical} />
       </Helmet>
     </div>
   )
@@ -47,7 +43,6 @@ const MyHelmet = ({ currentPath, windowSize }) => {
 
 const mapStateToProps = state => ({
   currentPath: state.router.location.pathname,
-  windowSize : state.windowSize,
 })
 
 export default connect(mapStateToProps)(MyHelmet)
